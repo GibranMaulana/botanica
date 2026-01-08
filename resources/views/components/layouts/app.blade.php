@@ -24,7 +24,8 @@
          </style>
       @endif
    </head>
-   <body class="bg-background text-text antialiased">
+   <body class="bg-background text-text antialiased font-body">
+      <x-header />
       <div data-barba="wrapper" >
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" >
             {{ $slot  }}  

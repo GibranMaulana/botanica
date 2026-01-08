@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
 
 export class RevealText {
    constructor(el) {
@@ -9,17 +10,23 @@ export class RevealText {
 
    init() {
       this.ctx = gsap.context(() => {
-         gsap.from(this.el, {
+
+         let word = SplitText.create(this.el, {type: "words, chars"});
+         // gsap.set(this.el, { perspective: 400 });
+         gsap.from(word.chars, {
             scrollTrigger: {
                trigger: this.el,
-               start: "top 80%", 
-               markers: true,
+               start: "top 70%", 
+               end: "top 30%",
                scrub: true,
                once: false
             },
-            x:300,
+
+            rotateY: -90,        
+            opacity: 0,          
+            stagger: 0.1
          })
-      }, this.element)
+      }, this.el)
    }
 
    kill() {
