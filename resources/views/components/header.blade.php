@@ -1,6 +1,6 @@
 <header class="fixed inset-x-0 top-0 z-100 mix-blend-difference">
    <div class="flex flex-row px-8 py-6 justify-between">
-      <h2 class="font-headings text-white">
+      <h2 class="font-headings text-white text-xl">
          BOTA<span class="inline-block scale-x-[-1]" >N</span>I<span class="inline-block scale-x-[-1]">C</span>A
       </h2>
 

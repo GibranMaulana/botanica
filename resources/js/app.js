@@ -9,5 +9,3 @@ window.addEventListener('load', () => {
    initLenis();
    initBarba();
 })
-
-

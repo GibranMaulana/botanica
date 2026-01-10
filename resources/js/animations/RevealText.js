@@ -5,6 +5,13 @@ export class RevealText {
    constructor(el) {
       this.el = el;
       this.ctx = null;
+      this.trigger = {
+         scrub: this.el.dataset.triggerScrub || false,
+         target: document.querySelector(this.el.dataset.triggerTarget) || this.el,  
+         start: this.el.dataset.triggerStart || 'top bottom',
+         end: this.el.dataset.triggerEnd || 'bottom top',
+         once: this.el.dataset.triggerOnce || false, 
+      }
       this.init();
    }
 
@@ -15,11 +22,11 @@ export class RevealText {
          // gsap.set(this.el, { perspective: 400 });
          gsap.from(word.chars, {
             scrollTrigger: {
-               trigger: this.el,
-               start: "top 70%", 
-               end: "top 30%",
-               scrub: true,
-               once: false
+               trigger: this.trigger.target,
+               start: this.trigger.start,
+               end: this.trigger.end,
+               scrub: parseInt(this.trigger.scrub, 10),
+               once: this.trigger.once
             },
 
             rotateY: -90,        

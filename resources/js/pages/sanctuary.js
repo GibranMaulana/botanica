@@ -1,4 +1,6 @@
 import { CurveLine, LoaderText } from "../animations/loader";
+import { ManifestoSanctuary } from "../animations/ManifestoSanctuary";
+import { OriginSanctuary } from "../animations/OriginSanctuary";
 import { RevealText } from "../animations/RevealText";
 
 let instances = [];
@@ -8,10 +10,12 @@ const sanctuaryView = {
    beforeEnter(data) {
       const revealTextEl = document.querySelectorAll('.reveal-text');
       const loaderTextEl = document.querySelectorAll('.loader-text');
-      const startCurve = document.getElementById('curve-start');
+      const startCurve = document.querySelectorAll('.curve-start');
       const endCurve = document.getElementById('curve-end');
       
-      if (!startCurve || !endCurve || !loaderTextEl) { return }
+      if (!startCurve || !endCurve || !loaderTextEl) { 
+         return
+      }
       
       revealTextEl.forEach(e => {
          instances.push(new RevealText(e));
@@ -21,8 +25,12 @@ const sanctuaryView = {
          instances.push(new LoaderText(e));
       })
 
-      instances.push(new CurveLine(startCurve, endCurve))
-      
+      startCurve.forEach(e => {
+         instances.push(new CurveLine(e, endCurve))
+      })
+
+      instances.push(new OriginSanctuary());
+      instances.push(new ManifestoSanctuary());
    },
 
    afterLeave(data) {
