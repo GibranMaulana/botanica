@@ -21,4 +21,6 @@ export function initLenis() {
    }) 
 
    gsap.ticker.lagSmoothing(0);
+
+   return lenis;
 }

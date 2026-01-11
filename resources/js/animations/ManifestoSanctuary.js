@@ -26,7 +26,8 @@ export class ManifestoSanctuary {
             rotateY: -90,        
             opacity: 0,          
             stagger: 0.1,
-            opacity: 0
+            opacity: 0,
+            duration: 1,
          })
          .from(splitSub.chars, {
             rotateY: -90,        

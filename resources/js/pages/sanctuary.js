@@ -2,6 +2,7 @@ import { CurveLine, LoaderText } from "../animations/loader";
 import { ManifestoSanctuary } from "../animations/ManifestoSanctuary";
 import { OriginSanctuary } from "../animations/OriginSanctuary";
 import { RevealText } from "../animations/RevealText";
+import { RitualSanctuary } from "../animations/RitualSanctuary";
 
 let instances = [];
 
@@ -31,6 +32,7 @@ const sanctuaryView = {
 
       instances.push(new OriginSanctuary());
       instances.push(new ManifestoSanctuary());
+      instances.push(new RitualSanctuary());
    },
 
    afterLeave(data) {
