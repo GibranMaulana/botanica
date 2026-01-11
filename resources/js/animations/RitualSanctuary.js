@@ -11,17 +11,22 @@ export class RitualSanctuary {
    init() {
       this.ctx = gsap.context(() => {
          const section = document.getElementById('ritual-sanctuary');
-         const imageContainer = section.querySelectorAll('.img-container');
+         const imageContainer1 = section.querySelectorAll('.img-container1');
+         const imageContainer2 = section.querySelectorAll('.img-container2');
          const productImage = section.querySelectorAll('.theimg');
-         const description = section.querySelectorAll('.description');
+         const description1 = section.querySelectorAll('.description1');
+         const description2 = section.querySelectorAll('.description2');
 
          const headings = section.querySelectorAll('.headings');
          const splitHeadings = SplitText.create(headings, { type: "words, chars" });
          const headings2 = section.querySelectorAll('.headings2');
          const splitHeadings2 = SplitText.create(headings2, { type: "words, chars" });
-         let tl = gsap.timeline();
+         
+         let tlproduct1 = gsap.timeline();
+         let tlproduct2 = gsap.timeline();
+         let tltransition = gsap.timeline();
 
-         tl.fromTo(imageContainer, {
+         tlproduct1.fromTo(imageContainer1, {
             y: 100,
             opacity: 0.5,
             filter: "blur(20px)",
@@ -39,7 +44,7 @@ export class RitualSanctuary {
                // from: "start"
             } 
          }, "<")
-         .fromTo(description, 
+         .fromTo(description1, 
          {
             opacity: 0,
             filter: "blur(20px)",
@@ -50,36 +55,53 @@ export class RitualSanctuary {
             y: -100,
             duration: 1
 
-         }, "+=0.5")
-         .to(splitHeadings.chars, {
-            y: -100,
-            opacity: 0
-         })
-         .to(headings, {
-            display: "none"
-         })
-         .from(headings2, {
-            display: "none"
-         })
-         .from(splitHeadings2.chars, {
+         }, "<0.5")
+         .to(imageContainer1, { duration: 2});
+         
+        
+         tltransition.to(splitHeadings.chars, { rotateY: 90, stagger: {amount: 0.4} })
+         .to(imageContainer1, { y: -100, opacity: 0, filter: "blur(20px)" }, "<")
+         .to(description1, { y:-200, opacity: 0, filter: "blur(20px)" }, "<")
+         .to(headings, { display: "none" })
+         .to(imageContainer1, { display: "none"}, "<")
+         .to(description1, { display: "none"}, "<")
+         .from(imageContainer2, { display: "none"})
+         .from(headings2, { display: "none" }, "<")
+         .from(description2, { display: "none"}, "<")
+         
+         tlproduct2.from(splitHeadings2.chars, {
             rotateY: -90,
             duration: 0.4,
             stagger: {
                amount: 0.6,
-               // from: "start"
             }
-         })
-         
-         
-         console.log(tl.totalDuration)
+         }, "<")
+         .fromTo(imageContainer2, 
+            { y: 100, filter: "blur(20px)", opacity: 0 },
+            { y: 0, filter: "blur(0px)", opacity: 1, duration: 1}, "<"
+         )
+         .fromTo(description2, 
+         {
+            opacity: 0,
+            filter: "blur(20px)",
+            y: 0
+         }, {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: -100,
+            duration: 1
+
+         }, "<0.1")
+         .to(imageContainer2, { duration: 2})
+
+         const mastertimeline = gsap.timeline().add(tlproduct1).add(tltransition).add(tlproduct2) 
 
          ScrollTrigger.create({
-            markers: true,
             trigger: section,
             start: 'top top',
-            end: '+=50%',
+            end: '+=250%',
             scrub: true,
-            animation: tl,
+            animation: mastertimeline,
             pin: true,
             anticipatePin: 1
          })
