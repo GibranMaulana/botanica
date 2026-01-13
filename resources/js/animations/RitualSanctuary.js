@@ -56,18 +56,17 @@ export class RitualSanctuary {
             duration: 1
 
          }, "<0.5")
-         .to(imageContainer1, { duration: 2});
-         
+         .from(imageContainer1, { duration: 1});
         
          tltransition.to(splitHeadings.chars, { rotateY: 90, stagger: {amount: 0.4} })
          .to(imageContainer1, { y: -100, opacity: 0, filter: "blur(20px)" }, "<")
          .to(description1, { y:-200, opacity: 0, filter: "blur(20px)" }, "<")
-         .to(headings, { display: "none" })
-         .to(imageContainer1, { display: "none"}, "<")
-         .to(description1, { display: "none"}, "<")
-         .from(imageContainer2, { display: "none"})
-         .from(headings2, { display: "none" }, "<")
-         .from(description2, { display: "none"}, "<")
+         .to(headings, { display: "none", duration: 0 })
+         .to(imageContainer1, { display: "none", duration: 0}, "<")
+         .to(description1, { display: "none", duration: 0}, "<")
+         .from(imageContainer2, { display: "none", duration: 0})
+         .from(headings2, { display: "none", duration: 0 }, "<")
+         .from(description2, { display: "none", duration: 0 }, "<")
          
          tlproduct2.from(splitHeadings2.chars, {
             rotateY: -90,
@@ -75,7 +74,7 @@ export class RitualSanctuary {
             stagger: {
                amount: 0.6,
             }
-         }, "<")
+         })
          .fromTo(imageContainer2, 
             { y: 100, filter: "blur(20px)", opacity: 0 },
             { y: 0, filter: "blur(0px)", opacity: 1, duration: 1}, "<"

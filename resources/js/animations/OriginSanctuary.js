@@ -23,10 +23,10 @@ export class OriginSanctuary  {
 
          let tlout = gsap.timeline({ paused: true });
 
-         tl.to(image, {duration: 1})
+         tl
          .fromTo(image, {
             filter: "blur(10px)",
-            y: 100
+            y: 100,
          }, {
             filter: "blur(0px)",
             y:-100
