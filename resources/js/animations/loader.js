@@ -57,18 +57,6 @@ export class LoaderText {
             ease: "power1.in"
          });
 
-         gsap.to(entireSection, {
-            scrollTrigger: {
-               scrub: 1,
-               trigger: entireSection,
-               start: "top top",
-               end: "bottom center",
-            },
-
-            ease: 'power1.in',
-            y: "-30%"
-         })
-
          if(!disableHover) [
             this.hover.animation = gsap.to(this.splitter.chars, {
                duration: 0.5,

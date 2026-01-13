@@ -26,7 +26,7 @@
    </head>
    <body class="bg-background text-text antialiased font-body">
       <x-header />
-      <div data-barba="wrapper" >
+      <div data-barba="wrapper" class="relative">
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" >
             {{ $slot  }}  
          </main>
