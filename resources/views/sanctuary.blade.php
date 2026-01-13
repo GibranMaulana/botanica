@@ -3,4 +3,5 @@
    <x-sections.origin-sanctuary />
    <x-sections.manifesto-sanctuary />
    <x-sections.ritual-sanctuary />
+   <x-footer />
 </x-layouts.app>

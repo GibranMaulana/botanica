@@ -92,7 +92,6 @@ export class RitualSanctuary {
             duration: 1
 
          }, "<0.1")
-         .to(imageContainer2, { duration: 2})
 
          const mastertimeline = gsap.timeline().add(tlproduct1).add(tltransition).add(tlproduct2) 
 
