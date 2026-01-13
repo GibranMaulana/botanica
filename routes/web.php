@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get("/", function () {
+   return redirect()->route('sanctuary');
+});
+
+Route::get('/sanctuary', function () {
     return view('sanctuary');
 })->name('sanctuary');
 

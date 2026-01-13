@@ -1,3 +1,4 @@
+import { Header } from "../animations/Header";
 import { CurveLine, LoaderText } from "../animations/loader";
 import { ManifestoSanctuary } from "../animations/ManifestoSanctuary";
 import { OriginSanctuary } from "../animations/OriginSanctuary";
@@ -30,6 +31,7 @@ const sanctuaryView = {
          instances.push(new CurveLine(e, endCurve))
       })
 
+      instances.push(new Header());
       instances.push(new OriginSanctuary());
       instances.push(new ManifestoSanctuary());
       instances.push(new RitualSanctuary());
