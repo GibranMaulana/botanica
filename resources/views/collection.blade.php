@@ -1,10 +1,15 @@
 <x-layouts.app namespace="collection">
-   <section class="min-h-screen">
-      <a href="{{ route('philosophy') }}" class="underline">philosophy</a>
-      <a href="{{ route('sanctuary') }}" class="underline">sanctuary</a>
-      <h1 class="text-7xl">TESTING</h1>
-   </section>
-   <section class="min-h-screen">
-      <h1 class="text-7xl">TESTING</h1>
-   </section>
+   <div class="absolute inset-0 z-0">
+      <video 
+      class="w-full h-full object-cover"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      >
+      <source src="{{ asset('hero-vid.webm') }}" type="video/webm">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]"></div>
+   </div>
 </x-layouts.app>

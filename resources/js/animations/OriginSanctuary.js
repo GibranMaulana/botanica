@@ -29,7 +29,7 @@ export class OriginSanctuary  {
             y: 100,
          }, {
             filter: "blur(0px)",
-            y:-100
+            y: 0
          })
          .from(title, {
             filter: "blur(10px)",

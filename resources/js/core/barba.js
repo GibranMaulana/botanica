@@ -15,6 +15,7 @@ export function initBarba(lenis) {
             let tl = gsap.timeline();
 
             tl.to(data.current.container, {
+               filter: "blur(20px)",
                opacity: 0
             })
             
@@ -27,6 +28,7 @@ export function initBarba(lenis) {
             lenis.scrollTo(0, { immediate: true});
 
             tl.from(data.next.container,  {
+               filter: "blur(20px)",
                opacity: 0
             })
 

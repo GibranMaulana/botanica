@@ -9,6 +9,7 @@ export class Header{
 
    init() {
       const headerSection = document.getElementById('header-section');
+
       this.ctx = gsap.context(() => {
 
          const icon = headerSection.querySelector('#menu-icon')
@@ -48,6 +49,8 @@ export class Header{
                paused: true,
                duration: 0.4,
                rotateY: -180,
+               perspective: 1000,
+               transformOrigin: "center center",
                stagger: { amount: 0.6}
             })
 
@@ -59,5 +62,9 @@ export class Header{
             })
          })
       }, headerSection)
+   }
+
+   kill() {
+      if(this.ctx) this.ctx.revert();
    }
 }
