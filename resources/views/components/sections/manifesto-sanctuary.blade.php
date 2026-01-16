@@ -28,7 +28,7 @@
          <div 
             class="reveal-title text-4xl font-headings text-gray-700 self-end uppercase"
             >
-            [ Manifesto ]
+            [ View Manifesto -> ]
          </div>
    </div>
 

@@ -24,10 +24,13 @@
          </style>
       @endif
    </head>
-   <body class="bg-background text-text antialiased font-body">
+   <body class="bg-background text-text antialiased font-body overflow-x-hidden">
       <x-header />
       <div data-barba="wrapper" class="relative">
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" >
+            <div class="absolute inset-0 z-999 min-h-screen max-h-screen">
+               <x-svgs.loader-overlay />
+            </div>
             {{ $slot  }}  
          </main>
       </div>

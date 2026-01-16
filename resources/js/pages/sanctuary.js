@@ -1,5 +1,6 @@
 import { Header } from "../animations/Header";
 import { CurveLine, LoaderText } from "../animations/loader";
+import { Loading } from "../animations/Loading";
 import { ManifestoSanctuary } from "../animations/ManifestoSanctuary";
 import { OriginSanctuary } from "../animations/OriginSanctuary";
 import { RevealText } from "../animations/RevealText";
@@ -19,6 +20,8 @@ const sanctuaryView = {
          return
       }
       
+      instances.push(new Loading());
+
       revealTextEl.forEach(e => {
          instances.push(new RevealText(e));
       })

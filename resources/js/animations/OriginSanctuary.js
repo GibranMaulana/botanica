@@ -13,7 +13,7 @@ export class OriginSanctuary  {
          const section = document.getElementById('origin-sanctuary');
          const wrapper = document.getElementById('origin-wrapper');
          const title = document.getElementById('title-origin-sanctuary');
-         const image = document.getElementById('image-hero-sanctuary');
+         const image = section.querySelectorAll('.image-asset');
          const dialouge1 = document.getElementById('dialouge-one');
          const dialouge2 = document.getElementById('dialouge-two');
 
@@ -25,25 +25,31 @@ export class OriginSanctuary  {
 
          tl
          .fromTo(image, {
-            filter: "blur(10px)",
-            y: 100,
-         }, {
             filter: "blur(0px)",
-            y: 0
+            opacity: 1,
+         }, {
+            filter: "blur(20px)",
+            opacity: 0.5,
+            duration: 4
          })
          .from(title, {
             filter: "blur(10px)",
             opacity: 0,
-            y:50
+            y:50,
+            duration: 4
          }, "<")
          .from(dialouge1, {
             filter: "blur(20px)",
-            // opacity: 0,
+            opacity: 0,
+            duration: 4
          })
          .from(dialouge2, {
             filter: "blur(20px)",
-            duration: 1
-            // opacity: 0,
+            opacity: 0,
+            duration: 4
+         })
+         .from(dialouge1, {
+            duration: 4,
          })
 
          tlout.to(wrapper, {
