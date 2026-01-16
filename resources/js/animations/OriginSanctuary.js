@@ -48,12 +48,8 @@ export class OriginSanctuary  {
             opacity: 0,
             duration: 4
          })
-         .from(dialouge1, {
-            duration: 4,
-         })
 
          tlout.to(wrapper, {
-            filter: "blur(20px)",
             y: -150,
          })
 
