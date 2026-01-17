@@ -1,34 +1,34 @@
 @props(['products'])
-<section class="relative min-h-screen flex flex-row p-20" id="ritual-sanctuary">
+<section class="relative min-h-screen grid grid-cols-1 justify-betweeen xl:grid-cols-3 p-20" id="ritual-sanctuary">
    
-   <div class="flex flex-col flex-1/3 min-h-full justify-end">
-      <p class="text-justify description1 max-w-sm text-pretty">
+   <div class="flex flex-col flex-1/3 lg:justify-end text-xs sm:text-sm md:text-base">
+      <p class="text-justify description1 sm:max-w-sm text-pretty">
          {{ $products[0]->description }}
       </p>
-      <p class="text-justify description2 max-w-sm text-pretty">
+      <p class="text-justify description2 sm:max-w-sm text-pretty">
          {{ $products[1]->description }}
       </p>
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full items-center img-container1 overflow-hidden">
-      <img src="{{ asset('storage/' . $products[0]->images->first()->path ) }}" alt="" class="">
+   <div class="flex flex-col flex-1/3 min-h-full items-center justify-center img-container1 overflow-hidden my-1">
+      <img src="{{ asset('storage/' . $products[0]->images->first()->path ) }}" alt="" class="max-w-3xs 2xl:max-w-lg">
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full justify-center img-container2 overflow-hidden">
-      <img src="{{ asset('storage/' . $products[1]->images->first()->path ) }}" alt="" class="">
+   <div class="flex flex-col flex-1/3 min-h-full items-center justify-center img-container2 overflow-hidden my-1">
+      <img src="{{ asset('storage/' . $products[1]->images->first()->path ) }}" alt="" class="max-w-3xs lg:max-w-md 2xl:max-w-lg">
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full justify-between items-end">
-      <h2 class="italic text-4xl font-headings text-pretty text-end text-primary headings uppercase">RITUAL 01 • {{ $products[0]->variants->first()->sku }}</h2>
-      <h2 class="italic text-4xl font-headings text-pretty text-end text-primary headings2 uppercase">RITUAL 02 • {{ $products[1]->variants->first()->sku }} </h2>
-      <div class="flex flex-col items-end text-gr headings">
-         <a href="" class="text-3xl font-headings text-end text-accent">[ VIEW THE RITUAL -> ]</a>
-         <h1 class="italic text-8xl font-headings text-pretty text-end uppercase">{{ $products[0]->name }}</h1>
+   <div class="flex flex-col flex-1/3 min-h-full justify-end xl:justify-between items-start sm:items-end">
+      <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings uppercase">RITUAL 01 • {{ $products[0]->variants->first()->sku }}</h2>
+      <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings2 uppercase">RITUAL 02 • {{ $products[1]->variants->first()->sku }} </h2>
+      <div class="flex flex-col items-start sm:items-end text-gr headings">
+         <a href="" class="text-lg sm:text-xl md:text-2xl lg:text-3xl  order-2 font-headings text-start sm:text-end text-accent">[ VIEW THE RITUAL -> ]</a>
+         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase">{{ $products[0]->name }}</h1>
       </div>
 
-      <div class="flex flex-col items-end text-gr headings2">
-         <a href="" class="text-3xl font-headings text-end text-accent">[ VIEW THE RITUAL -> ]</a>
-         <h1 class="italic text-8xl font-headings text-pretty text-end uppercase">{{ $products[1]->name }}</h1>
+      <div class="flex flex-col items-start sm:items-end text-gr headings2">
+         <a href="" class="text-lg sm:text-xl md:text-2xl lg:text-3xl  order-2 font-headings text-start sm:text-end text-accent">[ VIEW THE RITUAL -> ]</a>
+         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase">{{ $products[1]->name }}</h1>
       </div>
    </div>
 </section>
