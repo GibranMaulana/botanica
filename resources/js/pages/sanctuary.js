@@ -11,6 +11,7 @@ let instances = [];
 const sanctuaryView = {
    namespace: "sanctuary",
    beforeEnter(data) {
+
       const revealTextEl = document.querySelectorAll('.reveal-text');
       const loaderTextEl = document.querySelectorAll('.loader-text');
       const startCurve = document.querySelectorAll('.curve-start');
@@ -20,7 +21,7 @@ const sanctuaryView = {
          return
       }
       
-      instances.push(new Loading());
+      // instances.push(new Loading());
 
       revealTextEl.forEach(e => {
          instances.push(new RevealText(e));
