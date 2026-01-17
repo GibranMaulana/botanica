@@ -48,11 +48,11 @@ export class RitualSanctuary {
          {
             opacity: 0,
             filter: "blur(20px)",
-            y: 0
+            y: 100
          }, {
             opacity: 1,
             filter: "blur(0px)",
-            y: -100,
+            y: 0,
             duration: 1
 
          }, "<0.5")
@@ -83,11 +83,11 @@ export class RitualSanctuary {
          {
             opacity: 0,
             filter: "blur(20px)",
-            y: 0
+            y: 100
          }, {
             opacity: 1,
             filter: "blur(0px)",
-            y: -100,
+            y: 0,
             duration: 1
 
          }, "<0.1")

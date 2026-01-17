@@ -25,6 +25,12 @@
       @endif
    </head>
    <body class="bg-background text-text antialiased font-body overflow-x-hidden">
+      <div class="fixed inset-0 z-[9999] hidden bg-black text-white landscape:flex flex-col items-center justify-center lg:landscape:hidden">
+         <svg class="w-12 h-12 animate-spin-slow" ...>...</svg>
+         <p class="mt-4 text-sm font-light uppercase tracking-widest">
+            Please rotate your device for better experiences
+         </p>
+         </div>
       <x-header />
       <div data-barba="wrapper" class="relative">
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" >
