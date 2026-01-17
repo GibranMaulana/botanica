@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\SanctuaryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", function () {
    return redirect()->route('sanctuary');
 });
 
-Route::get('/sanctuary', function () {
-    return view('sanctuary');
-})->name('sanctuary');
+Route::get('/sanctuary', [SanctuaryController::class, 'index']
+)->name('sanctuary');
 
 Route::get('/collection', function() {
    return view('collection');
