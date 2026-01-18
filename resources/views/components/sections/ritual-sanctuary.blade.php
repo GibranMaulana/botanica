@@ -1,7 +1,7 @@
 @props(['products'])
-<section class="relative min-h-screen grid grid-cols-1 justify-betweeen xl:grid-cols-3 p-20" id="ritual-sanctuary">
+<section class="relative min-h-screen grid grid-cols-1 justify-center xl:justify-betweeen xl:grid-cols-3 px-10 xl:px-20 py-20 content-center gap-8" id="ritual-sanctuary">
    
-   <div class="flex flex-col flex-1/3 lg:justify-end text-xs sm:text-sm md:text-base">
+   <div class="flex flex-col h-fit xl:h-full lg:justify-end text-xs sm:text-sm md:text-base">
       <p class="text-justify description1 sm:max-w-sm text-pretty">
          {{ $products[0]->description }}
       </p>
@@ -10,15 +10,15 @@
       </p>
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full items-center justify-center img-container1 overflow-hidden my-1">
+   <div class="flex flex-col h-fit xl:h-full items-center justify-center img-container1 overflow-hidden my-1">
       <img src="{{ asset('storage/' . $products[0]->images->first()->path ) }}" alt="" class="max-w-3xs 2xl:max-w-lg">
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full items-center justify-center img-container2 overflow-hidden my-1">
+   <div class="flex flex-col h-fit xl:h-full items-center justify-center img-container2 overflow-hidden my-1">
       <img src="{{ asset('storage/' . $products[1]->images->first()->path ) }}" alt="" class="max-w-3xs lg:max-w-md 2xl:max-w-lg">
    </div>
 
-   <div class="flex flex-col flex-1/3 min-h-full justify-end xl:justify-between items-start sm:items-end">
+   <div class="flex flex-col h-fit xl:h-full justify-end xl:justify-between items-start sm:items-end">
       <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings uppercase">RITUAL 01 • {{ $products[0]->variants->first()->sku }}</h2>
       <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings2 uppercase">RITUAL 02 • {{ $products[1]->variants->first()->sku }} </h2>
       <div class="flex flex-col items-start sm:items-end text-gr headings">
