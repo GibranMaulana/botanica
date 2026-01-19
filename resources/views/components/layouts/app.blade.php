@@ -37,7 +37,8 @@
             {{-- <div class="absolute inset-0 z-999 min-h-screen max-h-screen">
                <x-svgs.loader-overlay />
             </div> --}}
-            {{ $slot  }}  
+            {{ $slot  }}
+            <x-footer />  
          </main>
       </div>
    </body>
