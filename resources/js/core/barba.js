@@ -45,8 +45,11 @@ export function initBarba(lenis) {
          },
 
          after(data) {
-            lenis.resize();
             ScrollTrigger.refresh();
+
+            requestAnimationFrame(() => {
+               lenis.resize();
+            })
          }
       }]
    })

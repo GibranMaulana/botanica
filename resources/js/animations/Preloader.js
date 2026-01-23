@@ -14,16 +14,23 @@ export class Preloader {
       const subtext = preloader.querySelectorAll('.preloader-text');
       const counter = document.getElementById('counter');
 
+      console.log("%c[Height Check] BEFORE Animation:", "color: orange; font-weight: bold;");
+      console.log("• Body Height:", document.body.scrollHeight);
+      console.log("• Window Height:", window.innerHeight);
+      console.log("• Lenis Limit:", this.lenis.limit);
+
       let tl; 
 
       this.ctx = gsap.context(() => {
          
          tl = gsap.timeline({ 
-             onComplete: () => { 
-                preloader.classList.add('hidden');
-                this.lenis.resize(); 
-                ScrollTrigger.refresh();
-             }
+            onComplete: () => { 
+               preloader.classList.add('hidden');
+               ScrollTrigger.refresh(); //update limit size
+               requestAnimationFrame(() => {
+                  this.lenis.resize();
+               })
+            }
          });
          
          tl.to(subtext, {

@@ -17,7 +17,6 @@ export class RitualSanctuary {
          const productImage = section.querySelectorAll('.theimg');
          const description1 = section.querySelectorAll('.description1');
          const description2 = section.querySelectorAll('.description2');
-         const bg = document.getElementById('ritual-bg');
 
          const headings = section.querySelectorAll('.headings');
          const splitHeadings = SplitText.create(headings, { type: "words, chars" });
@@ -29,10 +28,6 @@ export class RitualSanctuary {
          let tltransition = gsap.timeline();
 
          tlproduct1
-         .to(bg, {
-            y: "-50%",
-            duration: 5.6
-         }, 0)
          .fromTo(imageContainer1, {
             y: 100,
             opacity: 0.5,

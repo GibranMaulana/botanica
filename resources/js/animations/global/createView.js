@@ -27,7 +27,6 @@ export const createView = (namespace, animationClasses = []) => {
             firstLoad = false;
          } else {
             initAnimation(container);
-            ScrollTrigger.refresh()
          }
       },
 

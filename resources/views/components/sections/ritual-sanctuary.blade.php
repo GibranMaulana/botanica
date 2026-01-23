@@ -1,6 +1,6 @@
 @props(['products'])
-<section class="relative min-h-screen grid grid-cols-1 justify-center xl:justify-betweeen xl:grid-cols-3 px-10 xl:px-20 py-20 content-center gap-8" id="ritual-sanctuary">
-   <div id="ritual-bg" class="absolute inset-0 w-full h-[250dvh] -z-10 bg-linear-to-b from-background-2 to-background-3"></div> 
+<section class="relative min-h-screen grid grid-cols-1 justify-center xl:justify-betweeen xl:grid-cols-3 px-10 xl:px-20 py-20 content-center gap-8 overflow-hidden 
+                bg-linear-to-b from-background-2 to-background-3" id="ritual-sanctuary">
    <div class="flex flex-col h-fit xl:h-full lg:justify-end text-xs sm:text-sm md:text-base">
       <p class="text-justify description1 sm:max-w-sm text-pretty">
          {{ $products[0]->description }}
