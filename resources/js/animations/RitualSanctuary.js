@@ -3,8 +3,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
 export class RitualSanctuary {
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
       this.init();
    }
 
@@ -109,7 +110,7 @@ export class RitualSanctuary {
             pin: true,
             anticipatePin: 1
          })
-      })
+      }, this.scope)
    }
 
    kill() {

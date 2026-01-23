@@ -2,21 +2,30 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export class OriginSanctuary  {
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
+      console.log(scope);
       this.init();
    }
 
    init() {
       this.ctx = gsap.context(() => {
 
-         const section = document.getElementById('origin-sanctuary');
-         const wrapper = document.getElementById('origin-wrapper');
-         const bg = document.getElementById('origin-bg'); 
-         const title = document.getElementById('title-origin-sanctuary');
-         const image = section.querySelectorAll('.image-asset');
-         const dialouge1 = document.getElementById('dialouge-one');
-         const dialouge2 = document.getElementById('dialouge-two');
+         // const section = document.getElementById('origin-sanctuary');
+         // const wrapper = document.getElementById('origin-wrapper');
+         // const bg = document.getElementById('origin-bg'); 
+         // const title = document.getElementById('title-origin-sanctuary');
+         // const image = section.querySelectorAll('.image-asset');
+         // const dialouge1 = document.getElementById('dialouge-one');
+         // const dialouge2 = document.getElementById('dialouge-two');
+         const section = '#origin-sanctuary'
+         const wrapper = '#origin-wrapper'
+         const bg = '#origin-bg'; 
+         const title = '#title-origin-sanctuary';
+         const image = '.image-asset'
+         const dialouge1 = '#dialouge-one';
+         const dialouge2 = '#dialouge-two';
 
          let tl = gsap.timeline({
             paused: true, 
@@ -89,7 +98,7 @@ export class OriginSanctuary  {
             scrub: true,
             animation: tlout
          })
-      })
+      }, this.scope)
    }
 
    kill() {

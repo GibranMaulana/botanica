@@ -3,14 +3,22 @@ import gsap from "gsap";
 import sanctuaryView from "../pages/sanctuary";
 import philosophyView from "../pages/philosophy";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Preloader } from "../animations/Preloader";
 
 export function initBarba(lenis) {
+   
    barba.init({
       views: [sanctuaryView, philosophyView],
       debug: true,
 
       transitions: [{
          name: 'default',
+
+         once(data) {
+            const preloader = new Preloader();
+            return preloader;
+         },
+
          leave(data) {
             let tl = gsap.timeline();
 

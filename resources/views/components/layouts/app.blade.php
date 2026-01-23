@@ -30,13 +30,11 @@
          <p class="mt-4 text-sm font-light uppercase tracking-widest">
             Please rotate your device for better experiences
          </p>
-         </div>
-      <x-header />
+      </div>
+      <x-preloader />
       <div data-barba="wrapper" class="relative">
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" >
-            {{-- <div class="absolute inset-0 z-999 min-h-screen max-h-screen">
-               <x-svgs.loader-overlay />
-            </div> --}}
+            <x-header />
             {{ $slot  }}
          </main>
       </div>
