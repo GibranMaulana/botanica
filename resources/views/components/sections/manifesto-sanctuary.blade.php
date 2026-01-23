@@ -18,7 +18,7 @@
    ]
 ])
 
-<section class="relative py-20 px-4 lg:px-20 flex flex-col gap-24" id="manifesto-sanctuary">
+<section class="relative py-20 px-4 lg:px-20 flex flex-col gap-24 bg-linear-to-b from-background-1 to-background-2" id="manifesto-sanctuary">
    <div class="relative flex flex-col">
       <h1
          id="title-manifesto-sanctuary"

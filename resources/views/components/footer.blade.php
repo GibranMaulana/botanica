@@ -1,47 +1,49 @@
 @props([
-   'nav' => ['SHOP', 'JOURNAL','CONTACT '],
-   'social' => ['INSTAGRAM', "X", "PINTEREST"],
-   'location' => ['JAKARTA', "BALI", "BANDUNG"],
+   'footerelement' =>[ 
+      [
+         'name' => 'NAVIGATIONS',
+         'links' => ['SHOP', 'JOURNAL','CONTACT ']
+      ],
+      [
+         'name' => 'SOCIALS',
+         'links' => ['INSTAGRAM', "X (TWITTER)", "PINTEREST"],
+      ],
+      [
+         'name' => 'LOCATIONS',
+         'links' => ['JAKARTA', "BALI", "BANDUNG"]
+      ]
+   ],
+
 ])
 
-<section class="relative px-20" id="footer-section">
-   <div class="flex flex-col">
-      <div class="flex flex-row justify-end gap-20 py-10">
-         <div class="flex flex-col">
-            <h3 class="">SOCIALS</h3>
-            @foreach ($social as $s)
-               <a href="" class="text-xl">{{ $s }}</a>
-            @endforeach
-         </div>
-         <div class="flex flex-col">
-            <h3 class="">
-               NAVIGATIONS
+<section class="relative px-8 md:px-20 bg-linear-to-b from-background-3 to-background" id="footer-section">
+   <div class="flex flex-col gap-3 w-full items-end">
+      <div class="grid md:grid-cols-3 grid-cols-2 gap-y-10 gap-x-20 w-full lg:w-fit items-end">
+         @foreach ($footerelement as $fe)
+         <div class="flex flex-col gap-10 items-center lg:items-end lg:w-fit {{ $loop->last ? 'col-span-2 md:col-span-1' : '' }}">
+            <h3 class=" text-accent">
+               {{ $fe['name'] }}
             </h3>
-            @foreach ($nav as $n)
-               <a href="" class="text-xl">{{ $n }}</a>
-            @endforeach
+            <div class="flex flex-col gap-3 items-center lg:items-end ">
+               @foreach ($fe['links'] as $l)
+                  <a href="" class="links">{{ $l }}</a>
+               @endforeach
+            </div>
          </div>
-         <div class="flex flex-col">
-            <h3 class="">
-               LOCATIONS
-            </h3>
-            @foreach ($location as $l)
-               <a href="" class="text-xl">{{ $l }}</a>
-            @endforeach
-         </div>
+         @endforeach
       </div>
 
-      <hr />
+      <hr class="w-full"/>
 
-      <div class="flex flex-row justify-between py-5 items-baseline">
-         <div class="flex flex-row gap-3 items-baseline">
-            <h1 class="font-headings text-9xl leading-none text-end">BOTANICA</h1>
-            <p class="text-4xl">Rooted in the Earth.</p>
+      <div class="relative flex flex-col lg:flex-row justify-between py-5 gap-3 lg:gap-0 items-baseline w-full">
+         <div class="flex flex-col md:flex-row gap-0 md:gap-3 items-center lg:items-baseline self-center lg:self-start">
+            <h1 class="font-headings text-4xl md:text-6xl lg:text-7xl 2xl:text-9xl leading-[0.7] text-end headings">BOTANICA</h1>
+            <p class="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl leading-none  headings">Rooted in the Earth.</p>
          </div>
-         <div class="flex flex-row items-end gap-3">
-            <span>2026 Botanica Studio</span>
-            <span> | </span>
-            <span>All Rights Reserved</span>
+         <div class="flex flex-row items-center gap-3 text-xs lg:text-sm  self-center lg:self-end">
+            <span class="leading-none headings">2026 Botanica Studio</span>
+            <span class="leading-none headings"> | </span>
+            <span class="leading-none headings">All Rights Reserved</span>
          </div>
       </div>
    </div>

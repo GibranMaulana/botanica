@@ -1,3 +1,4 @@
+import { footer } from "../animations/Footer";
 import { Header } from "../animations/Header";
 import { CurveLine, LoaderText } from "../animations/loader";
 import { Loading } from "../animations/Loading";
@@ -39,6 +40,7 @@ const sanctuaryView = {
       instances.push(new OriginSanctuary());
       instances.push(new ManifestoSanctuary());
       instances.push(new RitualSanctuary());
+      instances.push(new footer());
    },
 
    afterLeave(data) {
