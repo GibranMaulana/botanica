@@ -38,7 +38,6 @@
                <x-svgs.loader-overlay />
             </div> --}}
             {{ $slot  }}
-            <x-footer />  
          </main>
       </div>
    </body>

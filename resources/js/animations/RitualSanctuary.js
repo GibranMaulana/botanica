@@ -16,6 +16,7 @@ export class RitualSanctuary {
          const productImage = section.querySelectorAll('.theimg');
          const description1 = section.querySelectorAll('.description1');
          const description2 = section.querySelectorAll('.description2');
+         const bg = document.getElementById('ritual-bg');
 
          const headings = section.querySelectorAll('.headings');
          const splitHeadings = SplitText.create(headings, { type: "words, chars" });
@@ -26,7 +27,12 @@ export class RitualSanctuary {
          let tlproduct2 = gsap.timeline();
          let tltransition = gsap.timeline();
 
-         tlproduct1.fromTo(imageContainer1, {
+         tlproduct1
+         .to(bg, {
+            y: "-150dvh",
+            duration: 5.6 
+         }, 0)
+         .fromTo(imageContainer1, {
             y: 100,
             opacity: 0.5,
             filter: "blur(20px)",
@@ -35,7 +41,7 @@ export class RitualSanctuary {
             opacity: 1,
             filter: "blur(0px)",
             duration: 1,
-         })
+         }, 0)
          .from(splitHeadings.chars, {
             rotateY: -90,
             duration: 0.4,
@@ -43,7 +49,7 @@ export class RitualSanctuary {
                amount: 0.6,
                // from: "start"
             } 
-         }, "<")
+         }, 0)
          .fromTo(description1, 
          {
             opacity: 0,
@@ -55,10 +61,10 @@ export class RitualSanctuary {
             y: 0,
             duration: 1
 
-         }, "<0.5")
+         }, 0.5)
          .from(imageContainer1, { duration: 1});
         
-         tltransition.to(splitHeadings.chars, { rotateY: 90, stagger: {amount: 0.4} })
+         tltransition.to(splitHeadings.chars, { rotateY: 90, stagger: {amount: 0.4} }, 2.5)
          .to(imageContainer1, { y: -100, opacity: 0, filter: "blur(20px)" }, "<")
          .to(description1, { y:-200, opacity: 0, filter: "blur(20px)" }, "<")
          .to(headings, { display: "none", duration: 0 })
@@ -74,10 +80,10 @@ export class RitualSanctuary {
             stagger: {
                amount: 0.6,
             }
-         })
+         }, 3.9)
          .fromTo(imageContainer2, 
             { y: 100, filter: "blur(20px)", opacity: 0 },
-            { y: 0, filter: "blur(0px)", opacity: 1, duration: 1}, "<"
+            { y: 0, filter: "blur(0px)", opacity: 1, duration: 1}, 4.5
          )
          .fromTo(description2, 
          {
@@ -90,9 +96,9 @@ export class RitualSanctuary {
             y: 0,
             duration: 1
 
-         }, "<0.1")
+         }, 4.6)
 
-         const mastertimeline = gsap.timeline().add(tlproduct1).add(tltransition).add(tlproduct2) 
+         const mastertimeline = gsap.timeline().add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<") 
 
          ScrollTrigger.create({
             trigger: section,
