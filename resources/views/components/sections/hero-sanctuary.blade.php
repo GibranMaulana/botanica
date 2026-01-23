@@ -19,18 +19,11 @@
 
    <div class="relative flex flex-col justify-between items-center min-h-screen z-10 p-10">
       <div class=""></div>
-      <div class="overflow-y-hidden">
+      <div class="overflow-hidden">
          <div
             id="title-hero-sanctuary"
-            data-trigger-start="top 20%"
-            data-trigger-end="bottom top"
-            data-trigger-scrub="1"
             class="loader-text relative flex flex-row items-center justify-center">
             <x-svgs.curve-line
-               target="#title-hero-sanctuary"
-               scrub="1"
-               start="top bottom"
-               end="bottom top"
                class="absolute inset-0 w-full h-full" />
             <h1 class="hover-text text-center overflow-hidden text-6xl sm:text-7xl md:text-9xl font-headings text-white uppercase leading-none z-10 mix-blend-difference">Return To Your Roots</h1>
          </div>
@@ -38,29 +31,13 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 w-full items-end justify-between space-y-10 xl:space-y-0">
          <div class="overflow-hidden flex justify-center sm:justify-start">
-            <h2 
-               data-trigger-scrub="1"
-               data-trigger-start="top 40%"
-               data-trigger-end="bottom top"
-               data-no-hover
-               class="loader-text text-white tracking-wide max-w-2xs text-pretty text-justify">Heavy glass. Cold stone. Raw clay. A collection of grounding elements designed to pull you out of your head and back into your body</h2>
+            <h2 class="loader-text text-white tracking-wide max-w-2xs text-pretty text-justify">Heavy glass. Cold stone. Raw clay. A collection of grounding elements designed to pull you out of your head and back into your body</h2>
          </div>
          <div class="overflow-hidden flex justify-center sm:justify-end xl:justify-center">
-            <h3 
-               data-no-hover 
-               data-trigger-scrub="1"
-               data-trigger-start="top 20%"
-               data-trigger-end="bottom top"
-               class="loader-text text-white tracking-wide border-b-2 text-center text-sm sm:text-base">Est. 2024 • Organic Skincare & Tea</h3>
+            <h3 class="loader-text text-white tracking-wide border-b-2 text-center text-sm sm:text-base">Est. 2024 • Organic Skincare & Tea</h3>
          </div>
          <div class="overflow-hidden flex justify-center sm:col-span-2 xl:col-auto xl:justify-end">
-            <a 
-               data-trigger-scrub="1"
-               data-trigger-start="top 20%"
-               data-trigger-end="bottom top"
-               data-no-hover 
-               href="" 
-               class="block loader-text font-headings text-white text-3xl sm:text-4xl">[ Begin The Journey ]</a>
+            <a class="block loader-text font-headings text-white text-3xl sm:text-4xl">[ Begin The Journey ]</a>
          </div>
       </div>
    </div>

@@ -2,13 +2,14 @@ import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText';
 
 export class Header{
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
       this.init()
    }
 
    init() {
-      const headerSection = document.getElementById('header-section');
+      const headerSection = this.scope.querySelector('#header-section');
 
       this.ctx = gsap.context(() => {
 
@@ -61,7 +62,7 @@ export class Header{
                hoverTimeline.reverse()
             })
          })
-      }, headerSection)
+      }, this.scope)
    }
 
    kill() {

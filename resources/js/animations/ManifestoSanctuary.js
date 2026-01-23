@@ -3,14 +3,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
 export class ManifestoSanctuary {
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
       this.init();
    }
 
    init() {
       this.ctx = gsap.context(() => {
-         const section = document.getElementById('manifesto-sanctuary');
+         const section = this.scope.querySelector('#manifesto-sanctuary');
 
          const title = section.querySelectorAll('.reveal-title');
          const splitTitle = SplitText.create(title, { type: "words, chars"});
@@ -46,7 +47,7 @@ export class ManifestoSanctuary {
             scrub: 1.5,
             animation: tl,
          })
-      })
+      }, this.scope)
    }
 
    kill() {

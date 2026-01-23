@@ -3,20 +3,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 
 export class RitualSanctuary {
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
       this.init();
    }
 
    init() {
       this.ctx = gsap.context(() => {
-         const section = document.getElementById('ritual-sanctuary');
+         const section = this.scope.querySelector('#ritual-sanctuary');
          const imageContainer1 = section.querySelectorAll('.img-container1');
          const imageContainer2 = section.querySelectorAll('.img-container2');
          const productImage = section.querySelectorAll('.theimg');
          const description1 = section.querySelectorAll('.description1');
          const description2 = section.querySelectorAll('.description2');
-         const bg = document.getElementById('ritual-bg');
 
          const headings = section.querySelectorAll('.headings');
          const splitHeadings = SplitText.create(headings, { type: "words, chars" });
@@ -28,10 +28,6 @@ export class RitualSanctuary {
          let tltransition = gsap.timeline();
 
          tlproduct1
-         .to(bg, {
-            y: "-150dvh",
-            duration: 5.6 
-         }, 0)
          .fromTo(imageContainer1, {
             y: 100,
             opacity: 0.5,
@@ -109,7 +105,7 @@ export class RitualSanctuary {
             pin: true,
             anticipatePin: 1
          })
-      })
+      }, this.scope)
    }
 
    kill() {

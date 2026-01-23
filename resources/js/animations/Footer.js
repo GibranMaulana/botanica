@@ -4,14 +4,15 @@ import { SplitText } from "gsap/SplitText";
 import { HoverAnimation } from "./global/Hover";
 
 export class footer {
-   constructor() {
+   constructor(scope) {
       this.ctx = null;
+      this.scope = scope;
       this.init();
    }
 
    init() {
       
-      const section = document.getElementById("footer-section");
+      const section = this.scope.querySelector("#footer-section");
       const links =  section.querySelectorAll(".links");
       const headingsElements = section.querySelectorAll('.headings');
 
@@ -21,7 +22,7 @@ export class footer {
          const splitHeadings = SplitText.create(headingsElements, { type: "words, chars"});
 
          if(!section || !links || !headingsElements) {
-            console.log('masih belum');
+            return;
          }
 
          const timeline = gsap.timeline();
@@ -47,10 +48,6 @@ export class footer {
                x: -10,
                stagger: 0.02,
                duration: 0.4,
-               onComplete: () => {
-                  console.log("footer tween activated");
-                  
-               }
             }, "<")
          
          ScrollTrigger.create({
@@ -61,7 +58,7 @@ export class footer {
          })
 
          
-      })
+      }, this.scope)
    }
 
    kill() {
