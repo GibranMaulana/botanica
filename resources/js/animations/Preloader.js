@@ -1,32 +1,67 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export class Preloader {
-   constructor() {
+   constructor(lenis) {
       this.ctx = null;
-      this.init()
+      this.lenis = lenis;
    }
 
    init() {  
       const preloader = document.getElementById('preloader-section');
+      
       const heading = preloader.querySelector('.preloader-heading');
+      const subtext = preloader.querySelectorAll('.preloader-text');
+      const counter = document.getElementById('counter');
+
+      let tl; 
 
       this.ctx = gsap.context(() => {
-         const timeline = gsap.timeline({ onComplete:() => { 
-            preloader.classList.add('hidden')
-         }});
-
-         timeline
-         .to(heading, {
-            y: 100,
-            opacity: 0,
-            ease: 'power1.in'
-         })
-         .to(preloader, {
-            scaleY: 0,
+         
+         tl = gsap.timeline({ 
+             onComplete: () => { 
+                preloader.classList.add('hidden');
+                this.lenis.resize(); 
+                ScrollTrigger.refresh();
+             }
+         });
+         
+         tl.to(subtext, {
+            y: 0,
             duration: 1,
-            ease: 'expo.in'
+            ease: "power3.out",
+            stagger: 0.1
          })
-      }, preloader)
+         .to(heading, {
+            y: 0,
+            duration: 1.2,
+            ease: "expo.out"
+         }, "-=0.8")
+         .to(counter, {
+             textContent: 100,
+             duration: 1.5,
+             roundProps: "textContent", 
+             ease: "power1.inOut",
+             snap: { textContent: 5 } 
+         }, "<");
+
+         tl.to(preloader, {
+            yPercent: -100, 
+            duration: 1.2,
+            ease: "expo.inOut",
+            onStart: () => {
+               window.dispatchEvent(new CustomEvent('preloader:complete'));
+            }
+         })
+         .to([heading, subtext, counter], {
+             y: 100, 
+             duration: 1,
+             ease: "expo.inOut"
+         }, "<"); 
+
+      }, preloader);
+
+      return tl; 
    }
 
    kill() {

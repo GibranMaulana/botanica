@@ -5,7 +5,6 @@ export class OriginSanctuary  {
    constructor(scope) {
       this.ctx = null;
       this.scope = scope;
-      console.log(scope);
       this.init();
    }
 

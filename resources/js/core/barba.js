@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Preloader } from "../animations/Preloader";
 
 export function initBarba(lenis) {
-   
+
    barba.init({
       views: [sanctuaryView, philosophyView],
       debug: true,
@@ -15,8 +15,9 @@ export function initBarba(lenis) {
          name: 'default',
 
          once(data) {
-            const preloader = new Preloader();
-            return preloader;
+            const preloader = new Preloader(lenis);
+
+            return preloader.init();
          },
 
          leave(data) {
@@ -44,6 +45,7 @@ export function initBarba(lenis) {
          },
 
          after(data) {
+            lenis.resize();
             ScrollTrigger.refresh();
          }
       }]

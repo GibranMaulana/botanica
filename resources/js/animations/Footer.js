@@ -48,10 +48,6 @@ export class footer {
                x: -10,
                stagger: 0.02,
                duration: 0.4,
-               onComplete: () => {
-                  console.log("footer tween activated");
-                  
-               }
             }, "<")
          
          ScrollTrigger.create({

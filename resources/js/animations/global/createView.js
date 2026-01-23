@@ -1,14 +1,34 @@
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+let firstLoad = true;
+
 export const createView = (namespace, animationClasses = []) => {
    let instances = [];
+
+   const initAnimation = (container) => {
+      animationClasses.forEach(e => {
+         instances.push(new e(container));
+      })
+
+      ScrollTrigger.refresh();
+   }
 
    return {
       namespace,
       beforeEnter(data) {
+
          const container = data.next.container;
 
-         animationClasses.forEach(e => {
-            instances.push(new e(container));
-         })
+         if(firstLoad) {
+            window.addEventListener('preloader:complete', () => {
+               initAnimation(container);
+            }, { once: true});
+
+            firstLoad = false;
+         } else {
+            initAnimation(container);
+            ScrollTrigger.refresh()
+         }
       },
 
       afterLeave(data) {
@@ -17,6 +37,7 @@ export const createView = (namespace, animationClasses = []) => {
          })
 
          instances = [];
-      }
+      },
+
    }
 }

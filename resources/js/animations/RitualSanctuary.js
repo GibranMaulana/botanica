@@ -11,7 +11,7 @@ export class RitualSanctuary {
 
    init() {
       this.ctx = gsap.context(() => {
-         const section = document.getElementById('ritual-sanctuary');
+         const section = this.scope.querySelector('#ritual-sanctuary');
          const imageContainer1 = section.querySelectorAll('.img-container1');
          const imageContainer2 = section.querySelectorAll('.img-container2');
          const productImage = section.querySelectorAll('.theimg');
@@ -30,8 +30,8 @@ export class RitualSanctuary {
 
          tlproduct1
          .to(bg, {
-            y: "-150dvh",
-            duration: 5.6 
+            y: "-50%",
+            duration: 5.6
          }, 0)
          .fromTo(imageContainer1, {
             y: 100,
