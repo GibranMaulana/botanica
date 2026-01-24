@@ -20,13 +20,15 @@
    <div class="flex flex-col gap-3 w-full items-end justify-end">
       <div class="grid md:grid-cols-3 grid-cols-2 gap-y-10 gap-x-20 w-full lg:w-fit items-end">
          @foreach ($footerelement as $fe)
-         <div class="flex flex-col gap-10 items-center lg:items-end lg:w-fit {{ $loop->last ? 'col-span-2 md:col-span-1' : '' }}">
-            <h3 class=" text-accent">
+         <div class="flex flex-col gap-10 items-center lg:items-end lg:w-fit overflow-hidden {{ $loop->last ? 'col-span-2 md:col-span-1' : '' }}">
+            <h3 class="text-accent">
                {{ $fe['name'] }}
             </h3>
-            <div class="flex flex-col gap-3 items-center lg:items-end ">
+            <div class="flex flex-col gap-3 items-center lg:items-end overflow-hidden">
                @foreach ($fe['links'] as $l)
-                  <a href="" class="links">{{ $l }}</a>
+               <div class="overflow-y-hidden">
+                  <a href="" class="links inline-block">{{ $l }}</a>
+               </div>
                @endforeach
             </div>
          </div>

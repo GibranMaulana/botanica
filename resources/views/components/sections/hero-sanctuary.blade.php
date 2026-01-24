@@ -31,13 +31,13 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 w-full items-end justify-between space-y-10 xl:space-y-0">
          <div class="overflow-hidden flex justify-center sm:justify-start">
-            <h2 class="loader-text text-white tracking-wide max-w-2xs text-pretty text-justify">Heavy glass. Cold stone. Raw clay. A collection of grounding elements designed to pull you out of your head and back into your body</h2>
+            <h2 class="explanation-text text-white tracking-wide max-w-2xs text-pretty text-justify">Heavy glass. Cold stone. Raw clay. A collection of grounding elements designed to pull you out of your head and back into your body</h2>
          </div>
          <div class="overflow-hidden flex justify-center sm:justify-end xl:justify-center">
-            <h3 class="loader-text text-white tracking-wide border-b-2 text-center text-sm sm:text-base">Est. 2024 • Organic Skincare & Tea</h3>
+            <h3 class="est-text text-white tracking-wide border-b-2 text-center text-sm sm:text-base">Est. 2024 • Organic Skincare & Tea</h3>
          </div>
          <div class="overflow-hidden flex justify-center sm:col-span-2 xl:col-auto xl:justify-end">
-            <a class="block loader-text font-headings text-white text-3xl sm:text-4xl">[ Begin The Journey ]</a>
+            <a href="#origin-sanctuary" class="block hero-button font-headings text-white text-3xl sm:text-4xl">[ Begin The Journey ]</a>
          </div>
       </div>
    </div>
