@@ -19,17 +19,19 @@
 ])
 
 <section class="relative py-20 px-4 lg:px-20 flex flex-col gap-24 bg-linear-to-b from-background-1 to-background-2" id="manifesto-sanctuary">
-   <div class="relative flex flex-col">
+   <div class="relative flex flex-col" id="title-container">
       <h1
          id="title-manifesto-sanctuary"
          class="reveal-title text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-center sm:text-start font-headings leading-none">
             NATURE DOES NOT HURRY
          </h1>
-         <div 
-            class="reveal-title text-xl sm:text-3xl font-headings text-gray-700 self-center sm:self-end uppercase"
+         <a 
+            href="{{ route('philosophy')  }}"
+            id="manifesto-button"
+            class="button text-xl sm:text-3xl font-headings text-gray-700 self-center sm:self-end uppercase"
             >
             [ View Manifesto -> ]
-         </div>
+         </a>
    </div>
 
 

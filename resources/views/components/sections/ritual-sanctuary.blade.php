@@ -21,14 +21,18 @@
    <div class="flex flex-col h-fit xl:h-full justify-end xl:justify-between items-start sm:items-end">
       <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings uppercase">RITUAL 01 • {{ $products[0]->variants->first()->sku }}</h2>
       <h2 class="italic text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headings text-pretty text-start sm:text-end text-primary headings2 uppercase">RITUAL 02 • {{ $products[1]->variants->first()->sku }} </h2>
-      <div class="flex flex-col items-start sm:items-end text-gr headings">
-         <a href="" class="text-lg sm:text-xl md:text-2xl lg:text-3xl  order-2 font-headings text-start sm:text-end text-accent">[ VIEW THE RITUAL -> ]</a>
-         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase">{{ $products[0]->name }}</h1>
+      <div class="flex flex-col items-start sm:items-end text-gr">
+         <div class="button1-container order-2">
+            <a href="{{ route('collection')  }}" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-headings text-start sm:text-end text-accent button1">[ VIEW THE RITUAL -> ]</a>
+         </div>
+         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase headings">{{ $products[0]->name }}</h1>
       </div>
 
-      <div class="flex flex-col items-start sm:items-end text-gr headings2">
-         <a href="" class="text-lg sm:text-xl md:text-2xl lg:text-3xl  order-2 font-headings text-start sm:text-end text-accent">[ VIEW THE RITUAL -> ]</a>
-         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase">{{ $products[1]->name }}</h1>
+      <div class="flex flex-col items-start sm:items-end text-gr ">
+         <div class="button2-container order-2">
+            <a href="{{ route('collection')  }}" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-headings text-start sm:text-end text-accent button2">[ VIEW THE RITUAL -> ]</a>
+         </div>
+         <h1 class="italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl order-1 font-headings text-pretty text-start sm:text-end uppercase headings2">{{ $products[1]->name }}</h1>
       </div>
    </div>
 </section>

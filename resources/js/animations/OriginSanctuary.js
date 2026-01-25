@@ -10,14 +10,7 @@ export class OriginSanctuary  {
 
    init() {
       this.ctx = gsap.context(() => {
-
-         // const section = document.getElementById('origin-sanctuary');
-         // const wrapper = document.getElementById('origin-wrapper');
-         // const bg = document.getElementById('origin-bg'); 
-         // const title = document.getElementById('title-origin-sanctuary');
-         // const image = section.querySelectorAll('.image-asset');
-         // const dialouge1 = document.getElementById('dialouge-one');
-         // const dialouge2 = document.getElementById('dialouge-two');
+         
          const section = '#origin-sanctuary'
          const wrapper = '#origin-wrapper'
          const bg = '#origin-bg'; 
@@ -29,8 +22,6 @@ export class OriginSanctuary  {
          let tl = gsap.timeline({
             paused: true, 
          });
-
-         let tlout = gsap.timeline({ paused: true });
 
          tl
          .to(bg, {
@@ -56,29 +47,17 @@ export class OriginSanctuary  {
          .from(dialouge1, {
             filter: "blur(20px)",
             opacity: 0,
-            duration: 4
+            duration: 4,
+            y: -100,
+            ease: 'power2.out'
          }, 4)
-         // .fromTo(image, {
-         //    y: 200
-         // }, { 
-         //    duration: 4,
-         //    y: 0
-         // }, 4)
          .from(dialouge2, {
             filter: "blur(20px)",
             opacity: 0,
-            duration: 4
+            duration: 4,
+            y: 100,
+            ease: 'power2.out'
          }, 8)
-         // .fromTo(image, {
-         //    y: 0
-         // }, { 
-         //    duration: 4,
-         //    y: -200
-         // }, 8)
-
-         tlout.to(wrapper, {
-            y: -150,
-         })
 
          ScrollTrigger.create({
             trigger: section,
@@ -88,14 +67,6 @@ export class OriginSanctuary  {
             scrub: true,
             anticipatePin: 1,
             animation: tl
-         })
-
-         ScrollTrigger.create({
-            trigger: section,
-            start: "60% center",
-            end: "bottom top",
-            scrub: true,
-            animation: tlout
          })
       }, this.scope)
    }

@@ -18,7 +18,7 @@ export class footer {
 
       this.ctx = gsap.context(() => {
 
-         const splitLinks = SplitText.create(links, { type: "words, chars"});
+         // const splitLinks = SplitText.create(links, { type: "words, chars"});
          const splitHeadings = SplitText.create(headingsElements, { type: "words, chars"});
 
          if(!section || !links || !headingsElements) {
@@ -28,13 +28,13 @@ export class footer {
          const timeline = gsap.timeline();
 
          timeline
-            .from(splitLinks.chars, {
-               rotateY: -90,
+            .from(links, {
+               y: 50,
                // opacity: 0,
                // y: 20,
-               x: -10,
+               ease: 'power3.out',
                stagger: 0.02,
-               duration: 0.4,
+               duration: 1,
                onComplete: () => {
                   links.forEach(e => {
                      new HoverAnimation(e);
