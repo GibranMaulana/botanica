@@ -5,7 +5,7 @@ export class Preloader {
    constructor(lenis) {
       this.ctx = null;
       this.lenis = lenis;
-      this.lenis.stop();
+      this.lenis.stop()
    }
 
    init() {  
@@ -20,16 +20,12 @@ export class Preloader {
       this.ctx = gsap.context(() => {
          
          tl = gsap.timeline({ 
-            onComplete: () => { 
-               this.lenis.start();
-               preloader.classList.add('hidden');
-
+            onComplete: () => {
+               this.lenis.start(); 
                ScrollTrigger.refresh(); //update limit size
                requestAnimationFrame(() => {
                   this.lenis.resize();
                })
-
-               // document.documentElement.style.overflow = "";
             }
          });
          

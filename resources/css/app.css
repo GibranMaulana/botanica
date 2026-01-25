@@ -9,9 +9,9 @@ html.lenis body {
   height: auto;
 }
 
-.lenis:not(.lenis-autoToggle).lenis-stopped {
+/* .lenis:not(.lenis-autoToggle).lenis-stopped {
   overflow: clip;
-}
+} */
 
 .lenis.lenis-smooth {
    scroll-behavior: auto;
@@ -64,5 +64,10 @@ html.lenis body {
    min-height: 100dvh;
    z-index: 1;
 }
+
+/* body {
+   overflow: hidden;
+   scrollbar-gutter: stable;
+} */
 
 

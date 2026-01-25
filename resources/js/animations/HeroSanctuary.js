@@ -52,6 +52,20 @@ export class HeroSanctuary {
             0.8
          );
 
+         gsap.fromTo(heroSection,
+         {
+            filter: "brightness(1) grayscale(0%)"
+         }, 
+         {
+            scrollTrigger: {
+               trigger: heroSection,
+               start: '20% top',
+               end: 'bottom top',
+               scrub: true,
+            },
+            filter: "brightness(0.4) grayscale(100%)" //this is the end effect right?
+         })
+
       }, this.scope);
    }
 
