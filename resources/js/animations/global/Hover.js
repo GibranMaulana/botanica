@@ -39,3 +39,36 @@ export class HoverAnimation {
       this.el.removeEventListener('mouseleave', this.onLeave);
    }
 }
+
+export class HoverAnimationUtil {
+   constructor(element, target, config) {
+      this.el = element;
+      this.target = target;
+      this.ctx = null;
+      this.config = config;
+      this.onEnter = null;
+      this.onLeave = null;
+      this.init();
+   }
+
+   init() {
+      this.ctx = gsap.context(() => {
+
+         const hover = gsap.to(this.el, { ...this.config, paused: true})
+
+         this.onEnter = () => hover.play();
+         this.onLeave = () => hover.reverse();
+
+         this.target.addEventListener('mouseenter', this.onEnter);
+         this.target.addEventListener('mouseleave', this.onLeave);
+
+      }, this.el)
+   }
+
+   kill() {
+      if(this.ctx) this.ctx.revert();
+      
+      this.target.removeEventListener('mouseenter', this.onEnter);
+      this.target.removeEventListener('mouseleave', this.onLeave);
+   }
+}

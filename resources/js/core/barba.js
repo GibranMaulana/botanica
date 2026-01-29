@@ -2,13 +2,14 @@ import barba from "@barba/core";
 import gsap from "gsap";
 import sanctuaryView from "../pages/sanctuary";
 import philosophyView from "../pages/philosophy";
+import collectionView from '../pages/collection';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Preloader } from "../animations/Preloader";
 
 export function initBarba(lenis) {
 
    barba.init({
-      views: [sanctuaryView, philosophyView],
+      views: [sanctuaryView, philosophyView, collectionView],
       debug: true,
 
       transitions: [{
