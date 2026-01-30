@@ -12,7 +12,6 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        // We will create 3 "Hero" products manually so they look good in your design
         $products = [
             [
                 'name' => 'Midnight Recovery Serum',
@@ -42,19 +41,64 @@ class ProductSeeder extends Seeder
                     ['size' => '50ml', 'price' => 35.00, 'stock' => 80, 'sku' => 'BPO-50'],
                 ],
                 'image' => 'products/oil-pure.jpg'
-            ]
+            ],
+            [
+                'name' => 'Jade Sculpting Gua Sha',
+                'description' => 'Hand-carved nephrite jade tool for facial massage. Promotes lymphatic drainage and enhances product absorption.',
+                'is_featured' => false,
+                'variants' => [
+                    ['size' => 'One Size', 'price' => 32.00, 'stock' => 150, 'sku' => 'TOOL-GUA-01'],
+                ],
+                'image' => 'products/tool-guasha.jpg'
+            ],
+            [
+                'name' => 'Hinoki & Ash Candle',
+                'description' => 'A soy-wax blend hand-poured in our signature ceramic vessel. Notes of Japanese cypress, charred wood, and vetiver.',
+                'is_featured' => true, 
+                'variants' => [
+                    ['size' => '200g', 'price' => 55.00, 'stock' => 40, 'sku' => 'HOME-HIN-200'],
+                    ['size' => '400g', 'price' => 85.00, 'stock' => 20, 'sku' => 'HOME-HIN-400'],
+                ],
+                'image' => 'products/candle-hinoki.jpg'
+            ],
+            [
+                'name' => 'Glacial Clay Detox Mask',
+                'description' => 'Sourced from the manicouagan crater. A negatively charged clay that acts as a magnet for toxins and heavy metals.',
+                'is_featured' => false,
+                'variants' => [
+                    ['size' => '100ml', 'price' => 48.00, 'stock' => 60, 'sku' => 'MSK-CLAY-100'],
+                ],
+                'image' => 'products/mask-clay.jpg'
+            ],
+            [
+                'name' => 'Rose Water Hydration Mist',
+                'description' => 'Distilled from Damask roses. Instantly refreshes and balances skin pH. Can be used as a toner or setting spray.',
+                'is_featured' => false,
+                'variants' => [
+                    ['size' => '100ml', 'price' => 24.00, 'stock' => 300, 'sku' => 'MST-ROSE-100'],
+                    ['size' => 'Refill', 'price' => 18.00, 'stock' => 100, 'sku' => 'MST-ROSE-REF'],
+                ],
+                'image' => 'products/mist-rose.jpg'
+            ],
+            [
+                'name' => 'Stem Cell Regeneration Cream',
+                'description' => 'Our most advanced formula. Swiss apple stem cells and peptides work synergistically to reverse signs of aging.',
+                'is_featured' => true,
+                'variants' => [
+                    ['size' => '50ml', 'price' => 125.00, 'stock' => 25, 'sku' => 'CRM-STEM-50'],
+                ],
+                'image' => 'products/cream-stem.jpg'
+            ],
         ];
 
         foreach ($products as $data) {
-            // 1. Create the Product
             $product = Product::create([
                 'name' => $data['name'],
-                'slug' => Str::slug($data['name']), // Automagically makes "midnight-recovery-serum"
+                'slug' => Str::slug($data['name']), 
                 'description' => $data['description'],
                 'is_featured' => $data['is_featured'],
             ]);
 
-            // 2. Create the Variants (Looping through the sizes)
             foreach ($data['variants'] as $variant) {
                 ProductVariant::create([
                     'product_id' => $product->id,
@@ -65,7 +109,6 @@ class ProductSeeder extends Seeder
                 ]);
             }
 
-            // 3. Create a Dummy Image
             ProductImage::create([
                 'product_id' => $product->id,
                 'path' => $data['image'],

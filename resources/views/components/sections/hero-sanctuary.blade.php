@@ -1,4 +1,4 @@
-<section class="sticky top-0 min-h-screen flex flex-col z-0" id="hero-sanctuary">
+<section class="relative top-0 min-h-screen flex flex-col z-0" id="hero-sanctuary">
       {{-- <div class="absolute top-0 left-0 max-h-screen z-0 overflow-hidden">
          <img src="{{ asset('images/hero-image.jpg')  }}" alt="" class="min-h-screen">
       </div> --}}

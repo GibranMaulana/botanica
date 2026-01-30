@@ -9,8 +9,6 @@ export const createView = (namespace, animationClasses = []) => {
       animationClasses.forEach(e => {
          instances.push(new e(container));
       })
-
-      ScrollTrigger.refresh();
    }
 
    return {

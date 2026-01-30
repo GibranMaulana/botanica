@@ -1,17 +1,6 @@
-let instances = [];
+import { createView } from "../animations/global/createView";
+import { ProductsCollection } from "../animations/ProductsCollection";
 
-const collectionView = {
-   namespace: 'collection',
-
-   beforeEnter(data) {
-      
-   }, 
-
-   afterLeave(data) {
-      instances.forEach(e => {
-         e.kill()
-      })
-
-      instances = []
-   }
-}
+export default createView('collection', [
+   ProductsCollection,
+])
