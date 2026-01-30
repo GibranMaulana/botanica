@@ -62,10 +62,8 @@ export class OriginSanctuary  {
          ScrollTrigger.create({
             trigger: section,
             start: "top top",
-            end: "+=150%",
-            pin: true,
+            end: "bottom bottom",
             scrub: true,
-            anticipatePin: 1,
             animation: tl
          })
       }, this.scope)
