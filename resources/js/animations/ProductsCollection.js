@@ -53,7 +53,7 @@ export class ProductsCollection {
                      buyButton,
                      card,
                      {
-                        scaleX: 1.5, duration: 0.3, ease:'power1.inOut'
+                        letterSpacing: "0.1em", duration: 0.3, ease:'power1.inOut'
                      }
                   )
                }
