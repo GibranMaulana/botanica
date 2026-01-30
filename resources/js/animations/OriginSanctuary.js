@@ -13,7 +13,6 @@ export class OriginSanctuary  {
          
          const section = '#origin-sanctuary'
          const wrapper = '#origin-wrapper'
-         const bg = '#origin-bg'; 
          const title = '#title-origin-sanctuary';
          const image = '.image-asset'
          const dialouge1 = '#dialouge-one';
@@ -24,10 +23,6 @@ export class OriginSanctuary  {
          });
 
          tl
-         .to(bg, {
-            y: "-100dvh",
-            duration: 12
-         }, 0)
          .fromTo(image, {
             filter: "blur(0px)",
             y:400,

@@ -1,8 +1,6 @@
-<section id="origin-sanctuary" class="relative min-h-[300vh]">
+<section id="origin-sanctuary" class="relative min-h-[300dvh] bg-linear-to-b from-background to-background-1">
    <div class="sticky top-0 left-0 h-screen overflow-hidden">
-      <div id="origin-bg" class="absolute inset-0 w-full h-[200vh] -z-10 bg-linear-to-b from-background to-background-1"></div>
       <div id="origin-wrapper" class="grid grid-cols-1 gap-5 min-h-screen max-h-screen py-20">
-         
          <div class="absolute inset-0 self-center place-self-center z-1">
             <h1 id="title-origin-sanctuary" class="font-headings text-5xl text-center xl:text-8xl mix-blend-exclusion text-accent">IT BEGAN WITH A PAUSE</h1>
          </div>

@@ -24,8 +24,6 @@ export class RitualSanctuary {
          const button1 = section.querySelector('.button1');
          const button2 = section.querySelector('.button2');
 
-
-
          const headings = section.querySelectorAll('.headings');
          const splitHeadings = SplitText.create(headings, { type: "words, chars" });
          const headings2 = section.querySelectorAll('.headings2');
@@ -34,7 +32,8 @@ export class RitualSanctuary {
          let tlproduct1 = gsap.timeline();
          let tlproduct2 = gsap.timeline();
          let tltransition = gsap.timeline();
-
+         gsap.set([imageContainer2, headings2, description2, buttonContainer2], { display: "none", }, 0)
+         
          tlproduct1
          .fromTo(imageContainer1, {
             y: 100,
@@ -80,9 +79,10 @@ export class RitualSanctuary {
          .to(headings, { display: "none", duration: 0 })
          .to(imageContainer1, { display: "none", duration: 0}, "<")
          .to(description1, { display: "none", duration: 0}, "<")
-         .from(imageContainer2, { display: "none", duration: 0})
-         .from(headings2, { display: "none", duration: 0 }, "<")
-         .from(description2, { display: "none", duration: 0 }, "<")
+         .to(imageContainer2, { display: "flex", duration: 0})
+         .to(headings2, { display: "inline-block", duration: 0 }, "<")
+         .to(description2, { display: "inline-block", duration: 0 }, "<")
+         .to(buttonContainer2, { display: "inline-block", duration: 0 }, "<")
          
          tlproduct2.from(splitHeadings2.chars, {
             rotateY: -90,
@@ -118,11 +118,9 @@ export class RitualSanctuary {
          ScrollTrigger.create({
             trigger: section,
             start: 'top top',
-            end: '+=250%',
+            end: 'bottom bottom',
             scrub: true,
             animation: mastertimeline,
-            pin: true,
-            anticipatePin: 1
          })
 
          new HoverAnimation(button1)
