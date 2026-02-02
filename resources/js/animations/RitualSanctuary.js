@@ -13,6 +13,7 @@ export class RitualSanctuary {
    init() {
       this.ctx = gsap.context(() => {
          const section = this.scope.querySelector('#ritual-sanctuary');
+         const sectionContent = section.querySelector('#ritual-sanctuary-content');
          const imageContainer1 = section.querySelectorAll('.img-container1');
          const imageContainer2 = section.querySelectorAll('.img-container2');
          const productImage = section.querySelectorAll('.theimg');
@@ -113,7 +114,10 @@ export class RitualSanctuary {
          }, 4.6)
          .from(imageContainer1, { duration: 0.5});
 
-         const mastertimeline = gsap.timeline().add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<") 
+             const mastertimeline = gsap.timeline({ 
+                onStart: () => { if(sectionContent) sectionContent.style.position = "sticky"; }
+             })
+             .add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<");
 
          ScrollTrigger.create({
             trigger: section,
@@ -130,7 +134,5 @@ export class RitualSanctuary {
 
    }
 
-   kill() {
-      if(this.ctx) this.ctx.revert();
-   }
+   kill() { if(this.ctx) this.ctx.revert(); }
 }

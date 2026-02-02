@@ -1,7 +1,7 @@
 @props(['products'])
 <div class="relative min-h-[500dvh]" id="ritual-sanctuary">
-   <section class="sticky top-0 left-0 h-screen grid grid-cols-1 justify-center xl:justify-betweeen xl:grid-cols-3 px-10 xl:px-20 pt-20 pb-10 content-center gap-8 overflow-hidden 
-                   bg-linear-to-b from-background-2 to-background-3">
+   <section class="relative top-0 left-0 h-screen grid grid-cols-1 justify-center xl:justify-betweeen xl:grid-cols-3 px-10 xl:px-20 pt-20 pb-10 content-center gap-8 overflow-hidden 
+                   bg-linear-to-b from-background-2 to-background-3" id="ritual-sanctuary-content">
       <div class="flex flex-col h-fit xl:h-full lg:justify-end text-xs sm:text-sm md:text-base">
          <p class="text-justify description1 sm:max-w-sm text-pretty">
             {{ $products[0]->description }}
