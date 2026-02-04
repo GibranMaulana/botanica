@@ -13,6 +13,17 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $products = [
+
+            [
+               'name' => 'Hinoki & Ash Candle',
+               'description' => 'A soy-wax blend hand-poured in our signature ceramic vessel. Notes of Japanese cypress, charred wood, and vetiver.',
+               'is_featured' => true, 
+               'variants' => [
+                  ['size' => '200g', 'price' => 55.00, 'stock' => 40, 'sku' => 'HOME-HIN-200'],
+                  ['size' => '400g', 'price' => 85.00, 'stock' => 20, 'sku' => 'HOME-HIN-400'],
+               ],
+               'image' => 'products/candle-hinoki.webp'
+            ],
             [
                 'name' => 'Midnight Recovery Serum',
                 'description' => 'A potent restorative treatment that works overnight to repair skin barrier function. Rich in antioxidants and botanical extracts.',
@@ -21,7 +32,7 @@ class ProductSeeder extends Seeder
                     ['size' => '30ml', 'price' => 45.00, 'stock' => 100, 'sku' => 'MRS-30'],
                     ['size' => '50ml', 'price' => 75.00, 'stock' => 50, 'sku' => 'MRS-50'],
                 ],
-                'image' => 'products/serum-midnight.jpg'
+                'image' => 'products/serum-midnight.webp'
             ],
             [
                 'name' => 'Velvet Moss Cleanser',
@@ -31,7 +42,7 @@ class ProductSeeder extends Seeder
                     ['size' => '150ml', 'price' => 28.00, 'stock' => 200, 'sku' => 'VMC-150'],
                     ['size' => 'Refill', 'price' => 22.00, 'stock' => 50, 'sku' => 'VMC-REF'],
                 ],
-                'image' => 'products/cleanser-moss.jpg'
+                'image' => 'products/cleanser-moss.webp'
             ],
             [
                 'name' => 'Botanica Pure Oil',
@@ -40,7 +51,7 @@ class ProductSeeder extends Seeder
                 'variants' => [
                     ['size' => '50ml', 'price' => 35.00, 'stock' => 80, 'sku' => 'BPO-50'],
                 ],
-                'image' => 'products/oil-pure.jpg'
+                'image' => 'products/oil-pure.webp'
             ],
             [
                 'name' => 'Jade Sculpting Gua Sha',
@@ -49,18 +60,9 @@ class ProductSeeder extends Seeder
                 'variants' => [
                     ['size' => 'One Size', 'price' => 32.00, 'stock' => 150, 'sku' => 'TOOL-GUA-01'],
                 ],
-                'image' => 'products/tool-guasha.jpg'
+                'image' => 'products/tool-guasha.webp'
             ],
-            [
-                'name' => 'Hinoki & Ash Candle',
-                'description' => 'A soy-wax blend hand-poured in our signature ceramic vessel. Notes of Japanese cypress, charred wood, and vetiver.',
-                'is_featured' => true, 
-                'variants' => [
-                    ['size' => '200g', 'price' => 55.00, 'stock' => 40, 'sku' => 'HOME-HIN-200'],
-                    ['size' => '400g', 'price' => 85.00, 'stock' => 20, 'sku' => 'HOME-HIN-400'],
-                ],
-                'image' => 'products/candle-hinoki.jpg'
-            ],
+            
             [
                 'name' => 'Glacial Clay Detox Mask',
                 'description' => 'Sourced from the manicouagan crater. A negatively charged clay that acts as a magnet for toxins and heavy metals.',
@@ -68,7 +70,7 @@ class ProductSeeder extends Seeder
                 'variants' => [
                     ['size' => '100ml', 'price' => 48.00, 'stock' => 60, 'sku' => 'MSK-CLAY-100'],
                 ],
-                'image' => 'products/mask-clay.jpg'
+                'image' => 'products/mask-clay.webp'
             ],
             [
                 'name' => 'Rose Water Hydration Mist',
@@ -78,7 +80,7 @@ class ProductSeeder extends Seeder
                     ['size' => '100ml', 'price' => 24.00, 'stock' => 300, 'sku' => 'MST-ROSE-100'],
                     ['size' => 'Refill', 'price' => 18.00, 'stock' => 100, 'sku' => 'MST-ROSE-REF'],
                 ],
-                'image' => 'products/mist-rose.jpg'
+                'image' => 'products/mist-rose.webp'
             ],
             [
                 'name' => 'Stem Cell Regeneration Cream',
@@ -87,7 +89,7 @@ class ProductSeeder extends Seeder
                 'variants' => [
                     ['size' => '50ml', 'price' => 125.00, 'stock' => 25, 'sku' => 'CRM-STEM-50'],
                 ],
-                'image' => 'products/cream-stem.jpg'
+                'image' => 'products/cream-stem.webp'
             ],
         ];
 
