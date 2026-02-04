@@ -1,6 +1,21 @@
-<section class="relative min-h-[50dvh] flex flex-col bg-linear-to-b from-background to-background-1 pt-22" id="hero-collection">
-   <div class="flex flex-col grow items-center justify-center text-center px-4 gap-3">
-      <h1 class="font-headings text-6xl uppercase italic">Nature, Distilled.</h1>
-      <p class="max-w-85 text-sm text-gray-600">A curated selection of organic remedies for the modern sanctuary.</p>
+<section class="relative min-h-[85dvh] flex flex-col bg-linear-to-b from-background to-background-1 pt-22" id="hero-collection">
+   <canvas id="hero-candle" class="absolute inset-0 z-20 w-full h-full pointer-events-none"></canvas>
+
+   <div class="relative z-10 w-full container mx-auto px-6 md:px-12 flex items-center justify-between pointer-events-none">
+      
+      <h1 class="font-headings text-[5vw] leading-none text-[#2A2A2A] tracking-tighter opacity-90">
+         NATURE,
+      </h1>
+
+     <h1 class="font-headings text-[5vw] leading-none text-[#2A2A2A] tracking-tighter opacity-90">
+         DISTILLED
+      </h1> 
+
+   </div>
+
+   <div class="absolute bottom-12 w-full z-30 flex justify-center text-center">
+      <p class="max-w-xs text-xs font-sans uppercase tracking-[0.2em] text-stone-500">
+         Organic Remedies • Est. 2026
+      </p>
    </div>
 </section>

@@ -13,6 +13,17 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $products = [
+
+            [
+               'name' => 'Hinoki & Ash Candle',
+               'description' => 'A soy-wax blend hand-poured in our signature ceramic vessel. Notes of Japanese cypress, charred wood, and vetiver.',
+               'is_featured' => true, 
+               'variants' => [
+                  ['size' => '200g', 'price' => 55.00, 'stock' => 40, 'sku' => 'HOME-HIN-200'],
+                  ['size' => '400g', 'price' => 85.00, 'stock' => 20, 'sku' => 'HOME-HIN-400'],
+               ],
+               'image' => 'products/candle-hinoki.webp'
+            ],
             [
                 'name' => 'Midnight Recovery Serum',
                 'description' => 'A potent restorative treatment that works overnight to repair skin barrier function. Rich in antioxidants and botanical extracts.',
@@ -51,16 +62,7 @@ class ProductSeeder extends Seeder
                 ],
                 'image' => 'products/tool-guasha.webp'
             ],
-            [
-                'name' => 'Hinoki & Ash Candle',
-                'description' => 'A soy-wax blend hand-poured in our signature ceramic vessel. Notes of Japanese cypress, charred wood, and vetiver.',
-                'is_featured' => true, 
-                'variants' => [
-                    ['size' => '200g', 'price' => 55.00, 'stock' => 40, 'sku' => 'HOME-HIN-200'],
-                    ['size' => '400g', 'price' => 85.00, 'stock' => 20, 'sku' => 'HOME-HIN-400'],
-                ],
-                'image' => 'products/candle-hinoki.webp'
-            ],
+            
             [
                 'name' => 'Glacial Clay Detox Mask',
                 'description' => 'Sourced from the manicouagan crater. A negatively charged clay that acts as a magnet for toxins and heavy metals.',
