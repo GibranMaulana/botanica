@@ -1,5 +1,3 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 let firstLoad = true;
 
 export const createView = (namespace, animationClasses = []) => {

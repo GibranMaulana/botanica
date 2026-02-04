@@ -1,4 +1,5 @@
 <x-layouts.app namespace="collection">
+   <x-header />
    <section class="min-h-[75dvh] bg-linear-to-b from-background-1 to-background" id="hero-collection">
       <div class="">
          
@@ -33,4 +34,5 @@
       </div> 
       @endforeach
    </section>
+   <x-footer />
 </x-layouts.app>

@@ -13,6 +13,7 @@ export class RitualSanctuary {
    init() {
       this.ctx = gsap.context(() => {
          const section = this.scope.querySelector('#ritual-sanctuary');
+         const sectionContent = section.querySelector('#ritual-sanctuary-content');
          const imageContainer1 = section.querySelectorAll('.img-container1');
          const imageContainer2 = section.querySelectorAll('.img-container2');
          const productImage = section.querySelectorAll('.theimg');
@@ -24,17 +25,22 @@ export class RitualSanctuary {
          const button1 = section.querySelector('.button1');
          const button2 = section.querySelector('.button2');
 
-
-
          const headings = section.querySelectorAll('.headings');
-         const splitHeadings = SplitText.create(headings, { type: "words, chars" });
          const headings2 = section.querySelectorAll('.headings2');
-         const splitHeadings2 = SplitText.create(headings2, { type: "words, chars" });
+         
+         const splitHeadings = SplitText.create(headings, { type: "words, chars", absolute: true });
+         const splitHeadings2 = SplitText.create(headings2, { type: "words, chars", absolute: true });
+
+         gsap.set(splitHeadings.chars, { x: -50, rotateY: -90 });
+         gsap.set(splitHeadings2.chars, { x: -50, rotateY: -90 });
+
+         gsap.set([headings, headings2], { visibility: "visible" });
          
          let tlproduct1 = gsap.timeline();
          let tlproduct2 = gsap.timeline();
          let tltransition = gsap.timeline();
-
+         gsap.set([imageContainer2, headings2, description2, buttonContainer2], { display: "none", }, 0)
+         
          tlproduct1
          .fromTo(imageContainer1, {
             y: 100,
@@ -46,9 +52,9 @@ export class RitualSanctuary {
             filter: "blur(0px)",
             duration: 1,
          }, 0)
-         .from(splitHeadings.chars, {
-            x: -50,
-            rotateY: -90,
+         .to(splitHeadings.chars, {
+            x: 0,
+            rotateY: 0,
             duration: 0.4,
             stagger: {
                amount: 0.6,
@@ -80,13 +86,14 @@ export class RitualSanctuary {
          .to(headings, { display: "none", duration: 0 })
          .to(imageContainer1, { display: "none", duration: 0}, "<")
          .to(description1, { display: "none", duration: 0}, "<")
-         .from(imageContainer2, { display: "none", duration: 0})
-         .from(headings2, { display: "none", duration: 0 }, "<")
-         .from(description2, { display: "none", duration: 0 }, "<")
+         .to(imageContainer2, { display: "flex", duration: 0})
+         .to(headings2, { display: "inline-block", duration: 0 }, "<")
+         .to(description2, { display: "inline-block", duration: 0 }, "<")
+         .to(buttonContainer2, { display: "inline-block", duration: 0 }, "<")
          
-         tlproduct2.from(splitHeadings2.chars, {
-            rotateY: -90,
-            x: -50,
+         tlproduct2.to(splitHeadings2.chars, {
+            rotateY: 0,
+            x: 0,
             duration: 0.4,
             stagger: {
                amount: 0.6,
@@ -113,16 +120,17 @@ export class RitualSanctuary {
          }, 4.6)
          .from(imageContainer1, { duration: 0.5});
 
-         const mastertimeline = gsap.timeline().add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<") 
+             const mastertimeline = gsap.timeline({ 
+                onStart: () => { if(sectionContent) sectionContent.style.position = "sticky"; }
+             })
+             .add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<");
 
          ScrollTrigger.create({
             trigger: section,
             start: 'top top',
-            end: '+=250%',
+            end: 'bottom bottom',
             scrub: true,
             animation: mastertimeline,
-            pin: true,
-            anticipatePin: 1
          })
 
          new HoverAnimation(button1)
@@ -132,7 +140,5 @@ export class RitualSanctuary {
 
    }
 
-   kill() {
-      if(this.ctx) this.ctx.revert();
-   }
+   kill() { if(this.ctx) this.ctx.revert(); }
 }
