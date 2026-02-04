@@ -1,4 +1,9 @@
-<section id="origin-sanctuary" class="relative min-h-[300dvh] bg-linear-to-b from-background to-background-1 overflow-x-clip">
+<section 
+    id="origin-sanctuary" 
+    class="relative z-10 min-h-[300dvh] bg-linear-to-b from-background to-background-1 overflow-x-clip pt-40 
+           [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)] 
+           webkit-[mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)]"
+>
    <div class="sticky top-0 left-0 h-screen overflow-hidden">
       <div id="origin-wrapper" class="grid grid-cols-1 gap-5 min-h-screen max-h-screen py-20">
          <div class="absolute inset-0 self-center place-self-center z-1">

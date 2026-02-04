@@ -26,9 +26,15 @@ export class RitualSanctuary {
          const button2 = section.querySelector('.button2');
 
          const headings = section.querySelectorAll('.headings');
-         const splitHeadings = SplitText.create(headings, { type: "words, chars" });
          const headings2 = section.querySelectorAll('.headings2');
-         const splitHeadings2 = SplitText.create(headings2, { type: "words, chars" });
+         
+         const splitHeadings = SplitText.create(headings, { type: "words, chars", absolute: true });
+         const splitHeadings2 = SplitText.create(headings2, { type: "words, chars", absolute: true });
+
+         gsap.set(splitHeadings.chars, { x: -50, rotateY: -90 });
+         gsap.set(splitHeadings2.chars, { x: -50, rotateY: -90 });
+
+         gsap.set([headings, headings2], { visibility: "visible" });
          
          let tlproduct1 = gsap.timeline();
          let tlproduct2 = gsap.timeline();
@@ -46,9 +52,9 @@ export class RitualSanctuary {
             filter: "blur(0px)",
             duration: 1,
          }, 0)
-         .from(splitHeadings.chars, {
-            x: -50,
-            rotateY: -90,
+         .to(splitHeadings.chars, {
+            x: 0,
+            rotateY: 0,
             duration: 0.4,
             stagger: {
                amount: 0.6,
@@ -85,9 +91,9 @@ export class RitualSanctuary {
          .to(description2, { display: "inline-block", duration: 0 }, "<")
          .to(buttonContainer2, { display: "inline-block", duration: 0 }, "<")
          
-         tlproduct2.from(splitHeadings2.chars, {
-            rotateY: -90,
-            x: -50,
+         tlproduct2.to(splitHeadings2.chars, {
+            rotateY: 0,
+            x: 0,
             duration: 0.4,
             stagger: {
                amount: 0.6,
