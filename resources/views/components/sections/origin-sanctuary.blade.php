@@ -13,9 +13,9 @@
             <p id="dialouge-one" class="max-w-sm text-pretty text-justify text-sm xl:text-base">I didn't start BOTANICA to build a brand. I started it to reclaim my own sanity. Living in the concrete heart of Jakarta, the noise was constant. The traffic, the notifications, the rush. I realized I had forgotten how to breathe.</p>
          </div>
          <div class="flex flex-row items-center justify-center gap-10">
-            <img src="{{ asset('images/poster-4.jpg')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-3xs 2xl:w-2xs">
-            <img src="{{ asset('images/poster1.jpg')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-2xs 2xl:w-xs">
-            <img src="{{ asset('images/poster-5.jpg')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-3xs 2xl:w-2xs">
+            <img src="{{ asset('images/poster-4.webp')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-3xs 2xl:w-2xs">
+            <img src="{{ asset('images/poster1.webp')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-2xs 2xl:w-xs">
+            <img src="{{ asset('images/poster-5.webp')  }}" alt="" class="image-asset w-40 sm:w-60 xl:w-3xs 2xl:w-2xs">
          </div>
          <div class="flex flex-col flex-1 items-end justify-end px-20">
             <p id="dialouge-two" class="max-w-sm text-pretty text-justify text-sm xl:text-base">
