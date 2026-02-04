@@ -28,6 +28,9 @@ export function initBarba(lenis) {
                 onComplete: done
             });
 
+            // 1. Subtle Parallax on Leaving Content
+            // Pushes the current page slightly up/down and fades it out
+            // making it feel like the shutter is pushing it away.
             tl.to(data.current.container, {
                y: -50,
                duration: 1
