@@ -2,10 +2,14 @@
    'products'
 ])
 
-<section class="bg-background min-h-screen mx-auto max-w-90 sm:max-w-160 lg:max-w-5xl xl:max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-hidden" id="products-collection">
+<section class="bg-background sm:mx-auto w-full sm:w-auto sm:max-w-160 lg:max-w-5xl xl:max-w-7xl sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:overflow-hidden
+                overflow-x-auto snap-x snap-mandatory no-scrollbar flex" id="products-collection">
    @foreach ($products as $p)
-   <div class="relative max-w-xs w-xs mx-auto flex flex-col p-4 m-2 col-span-1 rounded-lg product-card hover:cursor-pointer">
-      <div class="aspect-3/4 w-full overflow-hidden product-image-container">
+
+   {{-- versi grid --}}
+   <div class="relative max-w-xs w-xs mx-auto sm:flex flex-col p-4 m-2 col-span-1 rounded-lg product-card hover:cursor-pointer
+               snap-center shrink-0 min-w-[85%] ">
+      <div class="aspect-square sm:aspect-3/4 w-full overflow-hidden product-image-container">
          <img src="{{ asset('storage/' . $p->images()->first()?->path) }}" alt="" 
          class="object-cover self-center w-full h-full rounded-md product-image">
       </div>
