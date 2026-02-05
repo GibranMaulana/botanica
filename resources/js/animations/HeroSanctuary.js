@@ -5,6 +5,7 @@ export class HeroSanctuary {
    constructor(scope) {
       this.scope = scope;
       this.ctx = null;
+      this.hoverInstances = []
       this.init();
    }
 
@@ -47,7 +48,7 @@ export class HeroSanctuary {
          tl.fromTo([button, explanationText, establisedText], 
             { y: 20, opacity: 0 }, 
             { y: 0, opacity: 1, stagger: 0.1, duration: 1, onComplete: () => {
-               new HoverAnimation(button);
+               this.hoverInstances.push(new HoverAnimation(button));
             } }, 
             0.8
          );
@@ -70,6 +71,8 @@ export class HeroSanctuary {
    }
 
    kill() {
+      if(this.hoverInstances.length) this.hoverInstances.forEach(e => { e.kill() });
+      this.hoverInstances = [];
       if (this.ctx) this.ctx.revert();
    }
 }

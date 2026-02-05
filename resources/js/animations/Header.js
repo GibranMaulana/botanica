@@ -40,7 +40,6 @@ export class Header{
          icon.addEventListener("click", () => {
             timeline.reversed() ? timeline.play() : timeline.reverse();
             menuInstance.toggle()
-            console.log(menuInstance.opened)
          })
 
          //TODO: pake timeline nanti

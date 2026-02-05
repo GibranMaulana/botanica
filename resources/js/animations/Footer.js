@@ -7,6 +7,7 @@ export class footer {
    constructor(scope) {
       this.ctx = null;
       this.scope = scope;
+      this.hoverInstances = []
       this.init();
    }
 
@@ -37,7 +38,7 @@ export class footer {
                duration: 1,
                onComplete: () => {
                   links.forEach(e => {
-                     new HoverAnimation(e);
+                     this.hoverInstances.push(new HoverAnimation(e));
                   })
                }
             })
@@ -62,6 +63,8 @@ export class footer {
    }
 
    kill() {
+      if(this.hoverInstances.length) this.hoverInstances.forEach(e => e.kill());
+      this.hoverInstances = [];
       if(this.ctx) this.ctx.revert();
    }
 }

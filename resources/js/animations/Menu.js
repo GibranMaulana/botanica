@@ -72,9 +72,9 @@ export class Menu {
    }
 
    kill() {
-      if(this.ctx) this.ctx.revert();
-      if(this.hoverInstance > 0) this.hoverInstance.forEach(e => { e.kill() })
+      if(this.hoverInstance.length) this.hoverInstance.forEach(e => { e.kill() });
       this.hoverInstance = [];
+      if(this.ctx) this.ctx.revert();
    }
    
 }

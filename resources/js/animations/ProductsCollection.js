@@ -5,6 +5,7 @@ export class ProductsCollection {
    constructor(scope) {
       this.scope = scope;
       this.ctx = null;
+      this.hoverInstances = [];
       this.init();
    }
 
@@ -33,10 +34,12 @@ export class ProductsCollection {
                   ease: 'power2.inOut',
                   duration: 1,
                   onComplete: () => {
-                     new HoverAnimationUtil(
-                        productImage,
-                        card,
-                        { scale: 1.1, y: -20, duration: 0.3, ease: "power1.inOut" }
+                     this.hoverInstances.push(
+                        new HoverAnimationUtil(
+                           productImage,
+                           card,
+                           { scale: 1.1, y: -20, duration: 0.3, ease: "power1.inOut" }
+                        )
                      )
                   }
                })
@@ -53,12 +56,14 @@ export class ProductsCollection {
                   ease: 'power2.inOut',
                   duration: 1,
                   onComplete: () => {
-                     new HoverAnimationUtil(
-                        buyButton,
-                        card,
-                        {
-                           letterSpacing: "0.1em", duration: 0.3, ease:'power1.inOut'
-                        }
+                     this.hoverInstances.push(
+                        new HoverAnimationUtil(
+                           buyButton,
+                           card,
+                           {
+                              letterSpacing: "0.1em", duration: 0.3, ease:'power1.inOut'
+                           }
+                        )
                      )
                   }
                })
@@ -91,6 +96,9 @@ export class ProductsCollection {
    }
 
    kill() {
+      if(this.hoverInstances.length) this.hoverInstances.forEach(e => e.kill());
+      this.hoverInstances = [];
       if(this.ctx) this.ctx.revert();
+      
    }
 }
