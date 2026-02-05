@@ -1,4 +1,4 @@
-<section id="preloader-section" class="fixed inset-0 z-[9999] flex flex-col justify-between px-5 py-6 sm:px-10 sm:py-8 bg-[#F9F7F2] text-stone-900 overflow-hidden">
+<section id="preloader-section" class="fixed inset-0 z-[9999] flex flex-col justify-between px-5 py-6 sm:px-10 sm:py-8 bg-background-1 text-stone-900 overflow-hidden">
     
    <div class="flex justify-between items-start w-full overflow-hidden">
        <span class="preloader-text translate-y-full font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium">

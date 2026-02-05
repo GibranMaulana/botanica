@@ -7,6 +7,7 @@ export class ManifestoSanctuary {
    constructor(scope) {
       this.ctx = null;
       this.scope = scope;
+      this.hoverInstances = [];
       this.init();
    }
 
@@ -71,8 +72,7 @@ export class ManifestoSanctuary {
             filter: "blur(20px)"
          })
 
-         new HoverAnimation(button);
-
+         this.hoverInstances.push(new HoverAnimation(button))
          // ScrollTrigger.create({
          //    markers: true,
          //    trigger: section,
@@ -85,6 +85,8 @@ export class ManifestoSanctuary {
    }
 
    kill() {
+      if(this.hoverInstances.length) this.hoverInstances.forEach(e => { e.kill() });
+      this.hoverInstances = [];
       if(this.ctx) this.ctx.revert()
    }
 }

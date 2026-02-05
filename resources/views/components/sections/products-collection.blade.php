@@ -7,7 +7,7 @@
                    overflow-x-auto snap-x snap-mandatory no-scrollbar flex" id="products-collection">
       @foreach ($products as $p)
       <div class="relative max-w-[400px] w-xs mx-auto sm:flex flex-col p-4 m-2 col-span-1 rounded-lg product-card hover:cursor-pointer
-                  snap-center shrink-0 min-w-[85%]">
+                  snap-center shrink-0 min-w-[85%] ">
          <div class="aspect-square sm:aspect-3/4 w-full overflow-hidden product-image-container rounded-md">
             <img src="{{ asset('storage/' . $p->images()->first()?->path) }}" alt="" 
             class="object-cover self-center w-full h-full product-image scale-125 sm:scale-none">
