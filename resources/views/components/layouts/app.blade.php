@@ -33,9 +33,7 @@
       </div>
       <x-preloader />
       <x-header />
-      <div class="fixed inset-0 flex bg-background-1 z-999 scale-y-0 transition-overlay items-center justify-center">
-         <h1 class="transition-overlay-title font-headings text-2xl">botanica</h1>
-      </div>
+      <x-transition-overlay />
       <div data-barba="wrapper" class="relative">
          <main data-barba="container" data-barba-namespace="{{ $namespace }}" class="bg-background">
             {{-- <x-header /> --}}

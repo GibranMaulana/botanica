@@ -24,46 +24,54 @@ export function initBarba(lenis) {
          async leave(data) {
             const done = this.async(); 
             let tl = gsap.timeline({
-                defaults: { ease: "power4.inOut", duration: 1.2 },
+                defaults: { ease: "expo.inOut", duration: 1.2 },
                 onComplete: done
             });
 
-            // 1. Subtle Parallax on Leaving Content
-            // Pushes the current page slightly up/down and fades it out
-            // making it feel like the shutter is pushing it away.
-            tl.to(data.current.container, {
-               y: -50,
-               duration: 1
-            }, 0); 
-
-            tl.fromTo('.transition-overlay', 
+            tl.fromTo('.transition-col', 
                { scaleY: 0, transformOrigin: 'bottom' },
-               { scaleY: 1, onComplete: () => { gsap.set(data.current.container, { opacity: 0})} },
-               0 // Starts 0.1s after the content starts moving
+               { scaleY: 1, stagger: 0.05, duration: 0.8 }
             );
+
+            tl.to('.transition-title', {
+               y: 0,
+               opacity: 1,
+               duration: 0.5,
+               ease: "power2.out"
+            }, "-=0.4");
+
+            tl.to(data.current.container, {
+               y: 100,
+               opacity: 0,
+               duration: 1
+            }, 0);
 
             return tl;
          },
 
          async enter(data) {
             let tl = gsap.timeline({
-               defaults: { ease: "power4.inOut", duration: 1.2 }
+               defaults: { ease: "expo.inOut", duration: 1.2 }
            });
 
-           tl.to('.transition-overlay', {
-              scaleY: 0,
-              transformOrigin: 'top'
-           });
+            tl.to('.transition-title', {
+               y: -20,
+               opacity: 0,
+               duration: 0.4
+            });
 
-           tl.fromTo(data.next.container, {
-              y: 50,
-              opacity: 0,
-              
-           }, {
-               y: 0,
-               opacity: 1,
-               
-           }, 0);
+            tl.to('.transition-col', {
+               scaleY: 0,
+               transformOrigin: 'top', 
+               stagger: 0.05,
+               duration: 0.8
+            }, "<"); 
+
+            tl.fromTo(data.next.container, 
+               { opacity: 0, y: 50, scale: 0.98 },
+               { opacity: 1, y: 0, scale: 1, duration: 1, clearProps: "all" },
+               "-=1.0" 
+            );
 
            return tl;
          },
