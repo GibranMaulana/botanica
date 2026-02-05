@@ -9,7 +9,7 @@ export class Header{
    }
 
    init() {
-      const headerSection = this.scope.querySelector('#header-section');
+      const headerSection = document.querySelector('#header-section');
 
       this.ctx = gsap.context(() => {
 
