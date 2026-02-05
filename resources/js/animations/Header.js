@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText';
+import { Menu } from './Menu';
 
 export class Header{
    constructor(scope) {
@@ -19,6 +20,7 @@ export class Header{
          const icontop = icon.querySelector('#header-icon-top');
          const iconmiddle = icon.querySelector('#header-icon-middle');
          const iconbottom = icon.querySelector('#header-icon-bottom');
+         const menuOverlay = document.getElementById('menu-section');
 
          const headerLinks = headerSection.querySelectorAll('.header-links');
          
@@ -33,8 +35,12 @@ export class Header{
             }, "<")
             .to(iconmiddle, { opacity: 0}, "<")
 
+         const menuInstance = new Menu();
+
          icon.addEventListener("click", () => {
             timeline.reversed() ? timeline.play() : timeline.reverse();
+            menuInstance.toggle()
+            console.log(menuInstance.opened)
          })
 
          //TODO: pake timeline nanti
