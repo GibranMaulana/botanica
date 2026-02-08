@@ -51,7 +51,7 @@ export class ModalProduct {
                data.variants.forEach((v) => {
                   const sizeBtn = document.createElement("button");
                   sizeBtn.type = 'button';
-                  sizeBtn.className = "text-sm z-51 px-4";
+                  sizeBtn.className = "text-sm xl:text-base z-51 px-4";
                   sizeBtn.innerText = v.size
 
                   sizeBtn.addEventListener('click', () => {
