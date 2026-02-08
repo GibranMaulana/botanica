@@ -22,6 +22,7 @@ export class ProductsCollection {
                const productImage = card.querySelector('.product-image');
                const productContent = card.querySelector('.product-content');
                const buyButton = card.querySelector('.buy-button');
+               const productContentBg = card.querySelector('.product-content-bg');
                   
                gsap.from(productImage, {
                   scrollTrigger: {
@@ -62,6 +63,20 @@ export class ProductsCollection {
                            card,
                            {
                               letterSpacing: "0.1em", duration: 0.3, ease:'power1.inOut'
+                           }
+                        ),
+                        new HoverAnimationUtil(
+                           productContentBg,
+                           card,
+                           {
+                              translateY: 0, duration: 0.5, ease: "power2.inOut"
+                           }
+                        ),
+                        new HoverAnimationUtil(
+                           productContent.children,
+                           card,
+                           {
+                              color: "#F9F7F2", borderColor: "#F9F7F2", duration: 0.5, ease: "power2.inOut" 
                            }
                         )
                      )

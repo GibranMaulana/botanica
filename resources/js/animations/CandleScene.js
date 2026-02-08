@@ -1,4 +1,21 @@
-import * as THREE from 'three';
+import { 
+    Scene, 
+    PerspectiveCamera, 
+    WebGLRenderer, 
+    ACESFilmicToneMapping, 
+    PCFSoftShadowMap, 
+    PMREMGenerator, 
+    AmbientLight, 
+    DirectionalLight, 
+    SpotLight, 
+    TextureLoader, 
+    SRGBColorSpace, 
+    MeshPhysicalMaterial, 
+    DoubleSide, 
+    Color, 
+    MeshStandardMaterial, 
+    Group 
+} from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import gsap from 'gsap';
@@ -16,16 +33,15 @@ export class CandleScene {
    }
 
    init() {
-      this.scene = new THREE.Scene();
+      this.scene = new Scene();
       
       const container = this.canvas.parentElement;
       const width = container.clientWidth;
       const height = container.clientHeight;
 
-      this.camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+      this.camera = new PerspectiveCamera(45, width / height, 0.1, 100);
       this.camera.position.set(0, 0, 8); 
-
-      this.renderer = new THREE.WebGLRenderer({ 
+      this.renderer = new WebGLRenderer({ 
          canvas: this.canvas, 
          alpha: true, 
          antialias: true 
@@ -34,24 +50,24 @@ export class CandleScene {
       this.renderer.setSize(width, height);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       
-      this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      this.renderer.toneMapping = ACESFilmicToneMapping;
       this.renderer.toneMappingExposure = 1.0; 
       this.renderer.shadowMap.enabled = true;
-      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      this.renderer.shadowMap.type = PCFSoftShadowMap;
 
-      const pmremGenerator = new THREE.PMREMGenerator(this.renderer);
+      const pmremGenerator = new PMREMGenerator(this.renderer);
       this.scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
 
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+      const ambientLight = new AmbientLight(0xffffff, 0.2);
       this.scene.add(ambientLight);
 
-      const windowLight = new THREE.DirectionalLight(0xfff0dd, 3); 
+      const windowLight = new DirectionalLight(0xfff0dd, 3); 
       windowLight.position.set(-5, 2, 5); 
       windowLight.castShadow = true;      
       windowLight.shadow.bias = -0.0001;
       this.scene.add(windowLight);
       
-      const rimLight = new THREE.SpotLight(0xffffff, 5);
+      const rimLight = new SpotLight(0xffffff, 5);
       rimLight.position.set(5, 5, -5); 
       rimLight.lookAt(0, 0, 0);
       this.scene.add(rimLight);
@@ -61,10 +77,10 @@ export class CandleScene {
    }
 
    loadModel() {
-      const textureLoader = new THREE.TextureLoader();
+      const textureLoader = new TextureLoader();
       const labelTexture = textureLoader.load('/assets/textures/label-botanica.png');
       labelTexture.flipY = true; 
-      labelTexture.colorSpace = THREE.SRGBColorSpace; 
+      labelTexture.colorSpace = SRGBColorSpace; 
 
       const loader = new GLTFLoader();
 
@@ -82,47 +98,47 @@ export class CandleScene {
                if (child.isMesh) {
                   
                   if (child.name.includes('Cup')) {
-                     child.material = new THREE.MeshPhysicalMaterial({
+                     child.material = new MeshPhysicalMaterial({
                            color: 0x222222,       
                            roughness: 0.6,        
                            metalness: 0.1,
                            clearcoat: 0.5,        
                            clearcoatRoughness: 0.4, 
-                           side: THREE.DoubleSide
+                           side: DoubleSide
                      });
                   }
 
                   if (child.name.includes('Wax')) {
-                     child.material = new THREE.MeshPhysicalMaterial({
+                     child.material = new MeshPhysicalMaterial({
                            color: 0xfffae6,       
                            roughness: 0.3,        
                            metalness: 0.0,
                            transmission: 0.2,     
                            thickness: 1.5,        
-                           attenuationColor: new THREE.Color(0xffd700), 
+                           attenuationColor: new Color(0xffd700), 
                            attenuationDistance: 0.5,
                      });
                   }
 
                   if (child.name.includes('Label')) {
-                     child.material = new THREE.MeshStandardMaterial({
+                     child.material = new MeshStandardMaterial({
                            map: labelTexture,     
                            color: 0xfffef0,       
                            roughness: 0.9,
                            metalness: 0.0,
-                           side: THREE.DoubleSide
+                           side: DoubleSide
                      });
                   }
 
                   if (child.name.includes('Wick')) {
-                     child.material = new THREE.MeshStandardMaterial({
+                     child.material = new MeshStandardMaterial({
                            color: 0x3b2e25,       
                            roughness: 1.0
                      });
                   }
 
                   if (child.name.includes('Twine')) {
-                     child.material = new THREE.MeshStandardMaterial({
+                     child.material = new MeshStandardMaterial({
                            color: 0xd2c290,       
                            roughness: 1.0
                      });
@@ -130,7 +146,7 @@ export class CandleScene {
                }
          });
 
-         this.candleContainer = new THREE.Group();
+         this.candleContainer = new Group();
          this.candleContainer.add(this.candle);
          
          this.candleContainer.position.y = -0.5; 
