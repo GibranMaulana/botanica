@@ -10,7 +10,7 @@ export function initBarba(lenis) {
 
    barba.init({
       views: [sanctuaryView, philosophyView, collectionView],
-      debug: true,
+      // debug: true,
 
       transitions: [{
          name: 'default',
@@ -23,6 +23,8 @@ export function initBarba(lenis) {
 
          async leave(data) {
             const done = this.async(); 
+            data.current.container.classList.add('barba-leaving');
+
             let tl = gsap.timeline({
                 defaults: { ease: "expo.inOut", duration: 1.2 },
                 onComplete: done
@@ -53,6 +55,11 @@ export function initBarba(lenis) {
             let tl = gsap.timeline({
                defaults: { ease: "expo.inOut", duration: 1.2 }
            });
+
+           gsap.set(data.next.container, { 
+               position: 'relative',
+               clearProps: 'position' 
+            });
 
             tl.to('.transition-title', {
                y: -20,

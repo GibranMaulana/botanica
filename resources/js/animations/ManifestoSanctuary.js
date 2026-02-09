@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { HoverAnimation } from "./global/Hover";
 
@@ -20,67 +19,72 @@ export class ManifestoSanctuary {
          const title = section.querySelectorAll('.reveal-title');
          const splitTitle = SplitText.create(title, { type: "words, chars"});
 
-         const sub = section.querySelectorAll('.reveal-sub');
+         const pointContainers = section.querySelectorAll('.point-container');
 
-         const textblur = section.querySelectorAll('.reveal-blur');
          const button = section.querySelector('#manifesto-button');
+         this.hoverInstances.push(new HoverAnimation(button))
 
          gsap.from(splitTitle.chars, {
             scrollTrigger: {
                trigger: titleContainer, 
-               start: "top bottom",        
-               end: "top center",       
-               scrub: 1.5,
+               start: "top 75%", 
+               end: "top center",        
+               toggleActions: "play none none reverse" 
             },
-            rotateY: -90,        
-            opacity: 0,          
-            stagger: 0.1,
-            opacity: 0,
-            duration: 1,
-         })
-         gsap.from(titleContainer, {
+            rotateY: 90,        
+            y: 50, 
+            autoAlpha: 0, 
+            stagger: 0.02, 
+            duration: 1.2, 
+            ease: "expo.out", 
+            transformOrigin: "50% 50% -50px", 
+         });
+
+         gsap.from(button, {
             scrollTrigger: {
                trigger: titleContainer, 
-               start: "top bottom",        
-               end: "top center",       
-               scrub: 1.5,
+               start: "top 75%", 
+               end: "top center",        
+               toggleActions: "play none none reverse" 
             },
-            y: 100,
-            opacity: 0,
-         }, "<")
-         gsap.from(sub, {
-            scrollTrigger: {
-               trigger: sub, 
-               start: "top bottom",        
-               end: "top 75%",       
-               scrub: 1.5,
-            },
-            y:100,        
-            opacity: 0,          
-            stagger: 0.1,
-            opacity: 0
-         })
-         gsap.from(textblur, {
-            scrollTrigger: {
-               trigger: textblur, 
-               start: "top bottom",        
-               end: "top 85%",       
-               scrub: 1.5,
-            },
-            opacity: 0,
-            y: 100,
-            filter: "blur(20px)"
+            y: 50, 
+            autoAlpha: 0, 
+            duration: 1.2, 
+            ease: "expo.out", 
+            
+         });
+
+         pointContainers.forEach(point => {
+            const sub = point.querySelectorAll('.reveal-sub');
+            const textblur = point.querySelectorAll('.reveal-blur');
+
+            let tl = gsap.timeline({
+               scrollTrigger: {
+                  trigger: point,
+                  start: "top 85%", 
+                  toggleActions: "play none none reverse"
+               }
+            });
+
+            tl.from(sub, {
+               y: 60,        
+               autoAlpha: 0,          
+               stagger: 0.1,
+               duration: 1.2,
+               ease: "power3.out", 
+               clearProps: "all" 
+            });
+
+            tl.from(textblur, {
+               y: 40,
+               autoAlpha: 0,
+               duration: 1.2,
+               ease: "power2.out", 
+               clearProps: "all"
+            }, "-=1.0");
          })
 
-         this.hoverInstances.push(new HoverAnimation(button))
-         // ScrollTrigger.create({
-         //    markers: true,
-         //    trigger: section,
-         //    start: "top 80%",
-         //    end: "top 20%",
-         //    scrub: 1.5,
-         //    animation: tl,
-         // })
+
       }, this.scope)
    }
 

@@ -16,7 +16,7 @@ export class HeroSanctuary {
          const title = "#title-hero-sanctuary h1";
          const curveStart = "#curve-start";
          const curveEnd = "#curve-end"; 
-         
+         const dimmer = heroSection.querySelector('#hero-dimmer');         
          const explanationText = heroSection.querySelector('.explanation-text')
          const button = heroSection.querySelector(".hero-button");
          const establisedText = heroSection.querySelector('.est-text');
@@ -53,19 +53,16 @@ export class HeroSanctuary {
             0.8
          );
 
-         gsap.fromTo(heroSection,
-         {
-            filter: "brightness(1) grayscale(0%)"
-         }, 
-         {
+
+         gsap.to(dimmer, { 
+            opacity: 0.8, 
             scrollTrigger: {
                trigger: heroSection,
-               start: '20% top',
+               start: 'top top', 
                end: 'bottom top',
                scrub: true,
-            },
-            filter: "brightness(0.4) grayscale(100%)" //this is the end effect right?
-         })
+            }
+});
 
       }, this.scope);
    }
