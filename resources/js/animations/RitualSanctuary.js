@@ -13,131 +13,89 @@ export class RitualSanctuary {
    init() {
       this.ctx = gsap.context(() => {
          const section = this.scope.querySelector('#ritual-sanctuary');
-         const sectionContent = section.querySelector('#ritual-sanctuary-content');
-         const imageContainer1 = section.querySelectorAll('.img-container1');
-         const imageContainer2 = section.querySelectorAll('.img-container2');
-         const productImage = section.querySelectorAll('.theimg');
-         const description1 = section.querySelectorAll('.description1');
-         const description2 = section.querySelectorAll('.description2');
-
-         const buttonContainer1 = section.querySelector('.button1-container');
-         const buttonContainer2 = section.querySelector('.button2-container');
-         const button1 = section.querySelector('.button1');
-         const button2 = section.querySelector('.button2');
-
-         const headings = section.querySelectorAll('.headings');
-         const headings2 = section.querySelectorAll('.headings2');
+         const products = section.querySelectorAll('.product-wrapper');
+         const intro = section.querySelector('#ritual-intro');
          
-         const splitHeadings = SplitText.create(headings, { type: "words, chars", absolute: true });
-         const splitHeadings2 = SplitText.create(headings2, { type: "words, chars", absolute: true });
+         if (products.length < 2) return;
 
-         gsap.set(splitHeadings.chars, { x: -50, rotateY: -90 });
-         gsap.set(splitHeadings2.chars, { x: -50, rotateY: -90 });
+         const p1 = this.getProductElements(products[0]);
+         const p2 = this.getProductElements(products[1]);
 
-         gsap.set([headings, headings2], { visibility: "visible" });
-         
-         let tlproduct1 = gsap.timeline();
-         let tlproduct2 = gsap.timeline();
-         let tltransition = gsap.timeline();
-         gsap.set([imageContainer2, headings2, description2, buttonContainer2], { display: "none", }, 0)
-         
-         tlproduct1
-         .fromTo(imageContainer1, {
-            y: 100,
-            opacity: 0.5,
-            filter: "blur(20px)",
-         }, {
-            y: 0,
-            opacity: 1,
-            filter: "blur(0px)",
-            duration: 1,
-         }, 0)
-         .to(splitHeadings.chars, {
-            x: 0,
-            rotateY: 0,
-            duration: 0.4,
-            stagger: {
-               amount: 0.6,
-               // from: "start"
-            } 
-         }, 0)
-         .from(buttonContainer1, {
-             x:-50, duration: 1, opacity: 0
-         }, 0)
-         
-         .fromTo(description1, 
-         {
-            opacity: 0,
-            filter: "blur(20px)",
-            y: 100
-         }, {
-            opacity: 1,
-            filter: "blur(0px)",
-            y: 0,
-            duration: 1
+         const split1 = new SplitText(p1.mainHeading, { type: "chars" });
+         const split2 = new SplitText(p2.mainHeading, { type: "chars" });
 
-         }, 0.5)
-         .from(imageContainer1, { duration: 1});
-        
-         tltransition.to(splitHeadings.chars, { rotateY: 90, x:50, stagger: {amount: 0.4} }, 2.5)
-         .to(imageContainer1, { y: -100, opacity: 0, filter: "blur(20px)" }, "<")
-         .to(description1, { y:-200, opacity: 0, filter: "blur(20px)" }, "<")
-         .to(buttonContainer1, { x:50, opacity: 0}, "<")
-         .to(headings, { display: "none", duration: 0 })
-         .to(imageContainer1, { display: "none", duration: 0}, "<")
-         .to(description1, { display: "none", duration: 0}, "<")
-         .to(imageContainer2, { display: "flex", duration: 0})
-         .to(headings2, { display: "inline-block", duration: 0 }, "<")
-         .to(description2, { display: "inline-block", duration: 0 }, "<")
-         .to(buttonContainer2, { display: "inline-block", duration: 0 }, "<")
-         
-         tlproduct2.to(splitHeadings2.chars, {
-            rotateY: 0,
-            x: 0,
-            duration: 0.4,
-            stagger: {
-               amount: 0.6,
+         let tl = gsap.timeline({
+            defaults: { ease: "none" },
+            scrollTrigger: {
+               trigger: section,
+               start: 'top top',
+               end: 'bottom bottom',
+               scrub: 0.5, 
             }
-         }, 3.9)
-         .from(buttonContainer2, {
-            x:-50, duration: 1, opacity: 0
-         }, 3.9)
-         .fromTo(imageContainer2, 
-            { y: 100, filter: "blur(20px)", opacity: 0 },
-            { y: 0, filter: "blur(0px)", opacity: 1, duration: 1}, 4.5
-         )
-         .fromTo(description2, 
-         {
-            opacity: 0,
-            filter: "blur(20px)",
-            y: 100
-         }, {
-            opacity: 1,
-            filter: "blur(0px)",
-            y: 0,
-            duration: 1
+         });
 
-         }, 4.6)
-         .from(imageContainer1, { duration: 0.5});
+         tl.to(intro, { 
+            autoAlpha: 0, 
+            scale: 1.1, 
+            duration: 2, 
+            ease: "power1.in" 
+         }, 0); 
 
-             const mastertimeline = gsap.timeline({ 
-                onStart: () => { if(sectionContent) sectionContent.style.position = "sticky"; }
-             })
-             .add(tlproduct1, "<").add(tltransition, "<").add(tlproduct2, "<");
+         tl.to(p1.img, { autoAlpha: 1, scale: 1, y: 0, duration: 2 })
+           .to(p1.desc, { autoAlpha: 1, y: 0, duration: 2 }, "<")
+           .to(p1.sub, { autoAlpha: 1, x: 0, duration: 2 }, "<")
+           .to(p1.btn, { y: 0, duration: 2 }, "<")
+           .from(split1.chars, { 
+               opacity: 0, rotateY: 90, stagger: 0.1, duration: 2 
+           }, "<");
 
-         ScrollTrigger.create({
-            trigger: section,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-            animation: mastertimeline,
-         })
+         tl.addLabel("exit_p1", "+=1") 
+           
+           .to(split1.chars, {
+               rotateY: -90, 
+               x: -50,       
+               opacity: 0,
+               stagger: 0.05, 
+               duration: 1.5
+           }, "exit_p1")
 
-         new HoverAnimation(button1)
-         new HoverAnimation(button2)
+           .to(p1.img, { autoAlpha: 0, y: -50, duration: 1.5 }, "exit_p1")
+           .to(p1.desc, { autoAlpha: 0, y: -20, duration: 1.5 }, "exit_p1")
+           .to(p1.sub, { autoAlpha: 0, x: -20, duration: 1.5 }, "exit_p1")
+           .to(p1.btn, { y: 100, duration: 1.5 }, "exit_p1") // Drop button down
+           
+           .set(p1.container, { autoAlpha: 0 }, ">"); 
+
+         // ==================================================
+         tl.addLabel("enter_p2") 
+           
+           .set(p2.container, { autoAlpha: 1 }, "enter_p2") 
+           
+           .to(p2.img, { autoAlpha: 1, scale: 1, y: 0, duration: 2 }, "enter_p2")
+           .to(p2.desc, { autoAlpha: 1, y: 0, duration: 2 }, "enter_p2")
+           .to(p2.sub, { autoAlpha: 1, x: 0, duration: 2 }, "enter_p2")
+           .to(p2.btn, { y: 0, duration: 2 }, "enter_p2")
+           .from(split2.chars, { 
+               opacity: 0, rotateY: 90, stagger: 0.1, duration: 2 
+           }, "enter_p2");
+
+         tl.to({}, { duration: 2 }); 
+
+         new HoverAnimation(p1.btn);
+         new HoverAnimation(p2.btn);
 
       }, this.scope)
+   }
 
+   getProductElements(wrapper) {
+      return {
+         container: wrapper,
+         desc: wrapper.querySelector('.description'),
+         img: wrapper.querySelector('.theimg'),
+         sub: wrapper.querySelector('.sub-heading'),
+         mainHeading: wrapper.querySelector('.main-heading'),
+         btn: wrapper.querySelector('.button')
+      };
    }
 
    kill() { if(this.ctx) this.ctx.revert(); }
