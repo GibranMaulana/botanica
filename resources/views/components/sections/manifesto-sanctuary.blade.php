@@ -23,21 +23,21 @@
       <h1
          id="title-manifesto-sanctuary"
          class="reveal-title text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-center sm:text-start font-headings leading-none">
-            NATURE DOES NOT HURRY
-         </h1>
-         <a 
-            href="{{ route('philosophy')  }}"
-            id="manifesto-button"
-            class="button text-xl sm:text-3xl font-headings text-gray-700 self-center sm:self-end uppercase"
-            >
-            [ View Manifesto -> ]
-         </a>
+         NATURE DOES NOT HURRY
+      </h1>
+      <a 
+         href="{{ route('philosophy')  }}"
+         id="manifesto-button"
+         class="reveal-title button text-xl sm:text-3xl font-headings text-gray-700 self-center sm:self-end uppercase"
+         >
+         [ View Manifesto -> ]
+      </a>
    </div>
 
 
    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full justify-center gap-10 md:gap-0">
       @foreach ($points as $p)
-      <div class="flex flex-col w-fit h-full gap-12 mx-auto">
+      <div class="flex flex-col w-fit h-full gap-12 mx-auto point-container">
          <div class="flex flex-col gap-2" >
             <p 
                class="reveal-sub text-4xl text-accent font-headings leading-none">{{ "[" . $p['no'] . "]"  }}</p>

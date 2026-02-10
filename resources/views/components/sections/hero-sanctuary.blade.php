@@ -1,8 +1,4 @@
 <section class="sticky top-0 min-h-screen flex flex-col z-0" id="hero-sanctuary">
-      {{-- <div class="absolute top-0 left-0 max-h-screen z-0 overflow-hidden">
-         <img src="{{ asset('images/hero-image.jpg')  }}" alt="" class="min-h-screen">
-      </div> --}}
-      
    <div class="absolute inset-0 z-0">
       <video 
       class="w-full h-full object-cover"
@@ -13,6 +9,7 @@
       >
       <source src="{{ asset('hero-vid.webm') }}" type="video/webm">
       </video>
+      <div id="hero-dimmer" class="absolute inset-0 bg-black opacity-0 z-1 pointer-events-none"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]"></div>
    </div>

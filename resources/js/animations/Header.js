@@ -6,6 +6,7 @@ export class Header{
    constructor(scope) {
       this.ctx = null;
       this.scope = scope;
+      this.menu = null;
       this.init()
    }
 
@@ -72,5 +73,6 @@ export class Header{
 
    kill() {
       if(this.ctx) this.ctx.revert();
+      if(this.menu) this.menu.kill();
    }
 }

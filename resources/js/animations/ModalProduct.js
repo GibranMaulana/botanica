@@ -93,4 +93,9 @@ export class ModalProduct {
          }
       })
    }
+
+   kill() {
+      if(this.hoverInstances.length) this.hoverInstances.forEach(e => e.kill()); 
+      if(this.ctx) this.ctx.revert();
+   }
 }

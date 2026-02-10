@@ -12,7 +12,7 @@ export function initLenis() {
       smooth: true,
       mouseMultiplier: 1,
       smoothTouch: true,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
    })
 
    lenis.on('scroll', ScrollTrigger.update);

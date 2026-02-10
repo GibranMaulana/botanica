@@ -68,7 +68,7 @@ html.lenis body {
 }
 
 [data-barba="container"] {
-   position: absolute;
+   position: relative;
    top: 0;
    left: 0;
    width: 100%;
@@ -76,10 +76,18 @@ html.lenis body {
    z-index: 1;
 }
 
+/* 2. Transition State: Only absolute when the page is leaving */
+.barba-leaving {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none; /* Prevent clicks on the fading out page */
+}
+
 body {
    overflow-y: auto; /* Allow vertical scrolling */
    overflow-x: hidden; /* Prevent horizontal scrollbar */
-   scrollbar-gutter: stable;
    scrollbar-gutter: stable;
 }
 

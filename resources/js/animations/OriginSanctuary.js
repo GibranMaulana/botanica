@@ -24,41 +24,52 @@ export class OriginSanctuary  {
 
          tl
          .fromTo(image, {
-            filter: "blur(0px)",
+            scale: 1,
             y:400,
-            opacity: 1,
+            autoAlpha: 1,
          }, {
-            filter: "blur(20px)",
-            opacity: 0.5,
+            scale: 0.9,
+            autoAlpha: 0.3,
             y:-400,
             duration: 12
          }, 0)
-         .from(title, {
-            filter: "blur(10px)",
-            opacity: 0,
-            y:100,
+
+         .fromTo(title, {
+            scale: 1.1,
+            autoAlpha: 0,
+            y:100
+         }, {
+            autoAlpha: 1,
+            scale: 1,
+            y: 0,
+            scale: 0.9,
             duration: 4
          }, 0)
-         .from(dialouge1, {
-            filter: "blur(20px)",
-            opacity: 0,
+         
+         .fromTo(dialouge1, {
+            autoAlpha: 0,
+            y: 50,
+
+         }, {
+            autoAlpha: 1,
+            y: 0,
             duration: 4,
-            y: -100,
-            ease: 'power2.out'
          }, 4)
-         .from(dialouge2, {
-            filter: "blur(20px)",
-            opacity: 0,
+
+         .fromTo(dialouge2, {
+            autoAlpha: 0,
+            y: 50,
+         }, {
+            autoAlpha: 1,
+            y: 0,
             duration: 4,
-            y: 100,
-            ease: 'power2.out'
          }, 8)
 
          ScrollTrigger.create({
             trigger: section,
             start: "top top",
             end: "bottom bottom",
-            scrub: true,
+            scrub: 0.5,
             animation: tl
          })
       }, this.scope)
