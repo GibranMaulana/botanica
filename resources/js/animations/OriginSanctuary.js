@@ -18,79 +18,112 @@ export class OriginSanctuary {
             const dialouge1 = "#dialouge-one";
             const dialouge2 = "#dialouge-two";
 
-            let tl = gsap.timeline({
-                paused: true,
-            });
+            let timeline = gsap.timeline({ defaults: { ease: "none" } });
 
-            // tl.fromTo(
-            //     image,
-            //     {
-            //         y: 400,
-            //     },
-            //     {
-            //         y: 0,
-            //         duration: 12,
-            //     },
-            //     0,
-            // )
-            tl.fromTo(
-                imageContainer,
-                {
-                    clipPath: "inset(0% 0% 100% 0%)",
-                },
-                {
-                    clipPath: "inset(0% 0% 0% 0%)",
-                    duration: 4,
-                },
-                4,
-            )
+            gsap.set(image, { scale: 1.5, xPercent: -20 });
+
+            timeline
+                .fromTo(
+                    title,
+                    {
+                        transform: "translateY(100%)",
+                    },
+                    {
+                        transform: "translateY(0%)",
+                        duration: 10,
+                    },
+                    0,
+                )
+                .to(
+                    title,
+                    {
+                        autoAlpha: 0,
+                        duration: 1,
+                    },
+                    "<",
+                )
+                .fromTo(
+                    imageContainer,
+                    {
+                        transform: "translateX(50%)",
+                    },
+                    {
+                        transform: "translateX(-50%)",
+                        duration: 10,
+                    },
+                    0,
+                )
+                .fromTo(
+                    image,
+                    {
+                        xPercent: -20,
+                        // transform: "translateY(0%)",
+                    },
+                    {
+                        xPercent: 20,
+                        // transform: "translateY(-51%)",
+                        duration: 10,
+                    },
+                    0,
+                )
+                .fromTo(
+                    imageContainer,
+                    {
+                        clipPath: "inset(100% 0% 0% 0%)",
+                    },
+                    {
+                        clipPath: "inset(0% 0% 0% 0%)",
+                        duration: 2,
+                    },
+                    1,
+                )
 
                 .fromTo(
                     dialouge1,
                     {
-                        autoAlpha: 0,
-                        y: 50,
+                        transform: "translateY(-100%)",
                     },
                     {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 4,
+                        transform: "translateY(0%)",
+                        duration: 8,
                     },
-                    4,
+                    2,
                 )
-
-                .fromTo(
-                    title,
-                    {
-                        autoAlpha: 1,
-                    },
+                .from(
+                    dialouge1,
                     {
                         autoAlpha: 0,
-                        duration: 2,
+                        duration: 1,
                     },
-                    4,
+                    "<",
                 )
 
                 .fromTo(
                     dialouge2,
                     {
-                        autoAlpha: 0,
-                        y: 50,
+                        transform: "translateY(100%)",
                     },
                     {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 4,
+                        transform: "translateY(0%)",
+                        duration: 5,
                     },
-                    8,
+                    5,
+                )
+                .from(
+                    dialouge2,
+                    {
+                        autoAlpha: 0,
+                        duration: 1,
+                    },
+                    "<",
                 );
 
             ScrollTrigger.create({
                 trigger: section,
                 start: "top top",
-                end: "bottom bottom",
+                end: "bottom top",
                 scrub: 0.5,
-                animation: tl,
+                animation: timeline,
             });
         }, this.scope);
     }
