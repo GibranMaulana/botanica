@@ -19,7 +19,7 @@
 ])
 
 <section class="relative py-20 px-4 lg:px-20 flex flex-col gap-24 bg-linear-to-b from-background-1 to-background-2" id="manifesto-sanctuary">
-   <div class="relative flex flex-col" id="title-container">
+   <div class="relative flex flex-col overflow-hidden" id="title-container">
       <h1
          id="title-manifesto-sanctuary"
          class="reveal-title text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-center sm:text-start font-headings leading-none">
