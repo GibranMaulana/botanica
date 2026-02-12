@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductImage extends Model
 {
-   protected $guarded = [];
+    protected $guarded = [];
 
-   protected $casts = [
-      'is_primary' => 'boolean',
-   ];
+    protected $casts = [
+        'is_primary' => 'boolean',
+    ];
 
-   public function product(): BelongsTo
-   {
-      return $this->belongsTo(Product::class);
-   }
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

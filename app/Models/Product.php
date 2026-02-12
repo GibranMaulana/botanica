@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
-   protected $guarded = [];
+    protected $guarded = [];
 
-   protected $casts = [
-      'is_featured' => 'boolean',
-   ];
+    protected $casts = [
+        'is_featured' => 'boolean',
+    ];
 
-   public function variants() : HasMany
-   {
-      return $this->hasMany(ProductVariant::class);
-   }
+    public function variants(): HasMany
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
 
-   public function images(): HasMany
-   {
-      return $this->hasMany(ProductImage::class)->orderBy('sort_order');
-   }
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class)->orderBy('sort_order');
+    }
 }

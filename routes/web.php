@@ -4,8 +4,8 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\SanctuaryController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-   return redirect()->route('sanctuary');
+Route::get('/', function () {
+    return redirect()->route('sanctuary');
 });
 
 Route::get('/sanctuary', [SanctuaryController::class, 'index']
@@ -13,6 +13,6 @@ Route::get('/sanctuary', [SanctuaryController::class, 'index']
 
 Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
 
-Route::get('/philosophy', function() {
-   return view('philosophy');
+Route::get('/philosophy', function () {
+    return view('philosophy');
 })->name('philosophy');
