@@ -3,47 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
-   public function index() {
+    public function index()
+    {
 
-      $productsData = Product::with(['images', 'variants'])->get();
-      
-      $products = $productsData->map(function($p) {
+        $productsData = Product::with(['images', 'variants'])->get();
 
-         $maxPrice = $p->variants->max('price');
-         $minPrice = $p->variants->min('price');
+        $products = $productsData->map(function ($p) {
 
-         $displayPrice = $maxPrice == $minPrice 
-         ? "$" . $maxPrice
-         : "$" . $minPrice . " ~ $" . $maxPrice;
+            $maxPrice = $p->variants->max('price');
+            $minPrice = $p->variants->min('price');
 
-         $imgUrl = 'storage/' . ($p->images->first() ? $p->images->first()->path : "products/placeholder.jpg");
+            $displayPrice = $maxPrice == $minPrice
+            ? '$'.$maxPrice
+            : '$'.$minPrice.' ~ $'.$maxPrice;
 
-         return [
-            'id' => $p->id,
-            'name' => $p->name,
-            'description' => $p->description,
-            'img_url' => $imgUrl,
-            'display_price' => $displayPrice,
-            'variants_size_display' => $p->variants->pluck('size')->join(', '),
+            $imgUrl = 'storage/'.($p->images->first() ? $p->images->first()->path : 'products/placeholder.jpg');
 
-            'variants' => $p->variants->map(fn($v) => [
-               'id' => $v->id,
-               'sku' => $v->sku,
-               'size' => $v->size,
-               'price' => "$" . $v->price
-            ])
-         ];
-      });
+            return [
+                'id' => $p->id,
+                'name' => $p->name,
+                'description' => $p->description,
+                'img_url' => $imgUrl,
+                'display_price' => $displayPrice,
+                'variants_size_display' => $p->variants->pluck('size')->join(', '),
 
-       
+                'variants' => $p->variants->map(fn ($v) => [
+                    'id' => $v->id,
+                    'sku' => $v->sku,
+                    'size' => $v->size,
+                    'price' => '$'.$v->price,
+                ]),
+            ];
+        });
 
-
-      return view('collection', [
-         'products' => $products
-      ]);
-   }
+        return view('collection', [
+            'products' => $products,
+        ]);
+    }
 }

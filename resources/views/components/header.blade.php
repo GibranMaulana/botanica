@@ -11,14 +11,14 @@
       [
          'title' => "philosophy",
          'description' => "Understanding our approach. Learn about the sustainable practices and ancient wisdom that guide Botanica."
-      ],  
+      ],
    ]
 ])
 
 <header class="fixed inset-x-0 top-0 z-999 mix-blend-difference" id="header-section">
-   <div class="flex flex-row px-8 py-6 justify-center items-center gap-10">
-      <h2 class="font-headings text-white text-xl header-links">
-         BOTA<span class="inline-block scale-x-[-1]" >N</span>I<span class="inline-block scale-x-[-1]">C</span>A
+   <div class="flex flex-row px-8 w-full py-3 text-[clamp(1.25rem,2.5vmin,1.5rem)] justify-between items-center gap-10">
+      <h2 class="font-headings text-white header-links">
+        BOTANICA
       </h2>
 
       <div class="text-white flex overflow-y-hidden menu-icon">

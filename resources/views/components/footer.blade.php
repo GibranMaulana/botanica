@@ -1,5 +1,5 @@
 @props([
-   'footerelement' =>[ 
+   'footerelement' =>[
       [
          'name' => 'NAVIGATIONS',
          'links' => ['SHOP', 'JOURNAL','CONTACT ']
@@ -16,7 +16,7 @@
 
 ])
 
-<section class="relative px-8 md:px-20 bg-linear-to-b from-background-3 to-background overflow-hidden" id="footer-section">
+<section class="relative px-8 md:px-20 bg-linear-to-b from-background-3 to-background overflow-hidden -mt-px" id="footer-section">
    <div class="flex flex-col gap-3 w-full items-end justify-end">
       <div class="grid md:grid-cols-3 grid-cols-2 gap-y-10 gap-x-20 w-full lg:w-fit items-end">
          @foreach ($footerelement as $fe)
