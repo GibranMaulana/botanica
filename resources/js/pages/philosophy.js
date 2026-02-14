@@ -1,21 +1,5 @@
-import { RevealText } from "../animations/RevealText";
+import { footer } from "../animations/Footer";
+import { createView } from "../animations/global/createView";
+import { OriginPhilosophy } from "../animations/OriginPhilosophy";
 
-let instances = [];
-
-const philosophyView = {
-   namespace: "philosophy",
-   beforeEnter(data) {
-      const els = document.querySelectorAll('.reveal-text');
-      els.forEach(e => {
-         instances.push(new RevealText(e));
-      })
-   },
-
-   afterLeave(data) {
-      instances.forEach(e => {
-         e.kill();
-      })
-   }
-}
-
-export default philosophyView;
+export default createView("philosophy", [OriginPhilosophy, footer]);
