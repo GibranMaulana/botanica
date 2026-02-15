@@ -1,5 +1,5 @@
 @props(['products'])
-<div class="relative h-[400vh]" id="ritual-sanctuary">
+<div class="relative h-[500vh]" id="ritual-sanctuary">
 
    <section class="sticky top-0 h-screen w-full overflow-hidden bg-linear-to-b from-background-2 to-background-3 z-10" id="ritual-sanctuary-content">
 
@@ -25,7 +25,7 @@
                   </p>
                </div>
 
-               <div class="flex flex-col h-full items-center justify-center img-container overflow-hidden order-2 xl:order-none relative z-10 py-4 md:py-0">
+               <div class="flex flex-col h-full items-center justify-center img-container order-2 xl:order-none relative z-10 py-4 md:py-0">
                   <img src="{{ asset('storage/' . $product->images->first()->path ) }}"
                        class="theimg w-auto h-auto max-h-[40vh] md:max-h-[60vh] xl:max-h-[70vh] object-contain opacity-0 scale-90 translate-y-20">
                </div>

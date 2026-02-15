@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export class OriginSanctuary {
+export class OriginPhilosophy {
     constructor(scope) {
         this.ctx = null;
         this.scope = scope;
@@ -10,9 +10,11 @@ export class OriginSanctuary {
 
     init() {
         this.ctx = gsap.context(() => {
-            const section = "#origin-sanctuary";
+            const section = "#origin-philosophy";
             const wrapper = "#origin-wrapper";
-            const title = "#title-origin-sanctuary";
+            const title = "#title-origin-philosophy";
+            const subtitle = "#subtitle-origin-philosophy";
+            const titleText = "#title-text-origin-philosophy";
             const imageContainer = "#image-container";
             const image = ".image-asset";
             const dialouge1 = "#dialouge-one";
@@ -24,18 +26,18 @@ export class OriginSanctuary {
 
             timeline
                 .fromTo(
-                    title,
-                    {
-                        transform: "translateY(100%)",
-                    },
+                    [title, subtitle, titleText],
                     {
                         transform: "translateY(0%)",
+                    },
+                    {
+                        transform: "translateY(-100%)",
                         duration: 10,
                     },
                     0,
                 )
                 .to(
-                    title,
+                    [title, subtitle, titleText],
                     {
                         autoAlpha: 0,
                         duration: 1,
@@ -107,7 +109,7 @@ export class OriginSanctuary {
                         transform: "translateY(0%)",
                         duration: 5,
                     },
-                    5,
+                    3,
                 )
                 .from(
                     dialouge2,

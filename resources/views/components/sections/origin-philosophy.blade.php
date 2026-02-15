@@ -1,13 +1,22 @@
 <section
-    id="origin-sanctuary"
-    class="relative z-10 min-h-[400dvh] bg-linear-to-b from-background to-background-1 overflow-x-clip pt-40
-           [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)]
-           webkit-[mask-image:linear-gradient(to_bottom,transparent_0%,black_20%)]"
+    id="origin-philosophy"
+    class="relative z-10 min-h-[400dvh] bg-linear-to-b from-background to-background-1 overflow-x-clip"
 >
    <div class="sticky top-0 left-0">
-      <div id="origin-wrapper" class="grid grid-cols-1 gap-5 min-h-screen py-[clamp(2.5rem,8vmin,5rem)]">
-         <div class="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 pointer-events-none flex justify-center">
-            <h1 id="title-origin-sanctuary" class="font-headings text-center text-[clamp(3rem,8vmin,6rem)] md:mix-blend-exclusion text-accent">IT BEGAN WITH A PAUSE</h1>
+      <div id="origin-wrapper" class="grid grid-cols-1 gap-5 h-screen py-[clamp(2.5rem,8vmin,5rem)]">
+         <div class="absolute inset-0 pointer-events-none flex flex-col justify-center items-center">
+            <h2
+                id="subtitle-origin-philosophy"
+                class='font-headings text-2xl text-primary'
+                >
+                Our Story
+            </h2>
+            <h1 id="title-origin-philosophy" class="font-headings text-center text-[clamp(3rem,8vmin,6rem)] text-accent leading-none">IT BEGAN WITH A PAUSE</h1>
+            <p
+                id="title-text-origin-philosophy" class="text-sm text-gray-400/90"
+                >
+                Scroll to See
+            </p>
          </div>
 
          <div class="flex flex-col flex-1 items-start justify-end px-10 md:px-20">
