@@ -13,16 +13,22 @@ export default class StorySanctuary {
         const beforeSection = this.scope.querySelector("#hero-sanctuary");
 
         const section = this.scope.querySelector("#" + name);
+        const title = section.querySelector("#title-" + name);
         const wrapper = section.querySelector("#wrapper-" + name);
         const dimOffset = section.querySelector("#dim-offset-" + name);
-
-        console.log(section);
-        console.log(wrapper);
+        const imgCont1 = section.querySelector("#img-container1-" + name);
+        const cont1Second = imgCont1.querySelector(".second");
+        const imgCont2 = section.querySelector("#img-container2-" + name);
+        const cont2Second = imgCont2.querySelector(".second");
 
         this.ctx = gsap.context(() => {
             gsap.set(wrapper, {
                 translateY: "-50%",
                 zIndex: 1,
+            });
+
+            gsap.set(dimOffset, {
+                backgroundColor: "black",
             });
             // gsap.set(wrapper, { paddingTop: "20%" });
 
@@ -64,6 +70,75 @@ export default class StorySanctuary {
                 end: "bottom top",
                 animation: timeline,
             });
+        });
+
+        const enterTimeline = gsap.timeline({ defaults: { ease: "none" } });
+        const isMobile = () => window.innerWidth < 640;
+        enterTimeline
+            .fromTo(title, { yPercent: 50 }, { yPercent: -50, duration: 10 }, 0)
+            .fromTo(
+                title,
+                {
+                    autoAlpha: 0,
+                },
+                {
+                    autoAlpha: 1,
+                },
+                0,
+            )
+            .fromTo(
+                imgCont1,
+                {
+                    rotation: "20",
+                    yPercent: () => (isMobile() ? 20 : 100),
+                },
+                {
+                    rotation: "-20",
+                    yPercent: 0,
+                    duration: 10,
+                },
+                0,
+            )
+            .fromTo(
+                imgCont2,
+                {
+                    rotation: "-20",
+                    yPercent: () => (isMobile() ? 20 : 100),
+                },
+                {
+                    rotation: "20",
+                    yPercent: 0,
+                    duration: 10,
+                },
+                "<",
+            )
+            .fromTo(
+                cont1Second,
+                {
+                    clipPath: "inset(0% 0% 100% 0%)",
+                },
+                {
+                    clipPath: "inset(0% 0% 0% 0%)",
+                },
+                5,
+            )
+            .fromTo(
+                cont2Second,
+                {
+                    clipPath: "inset(100% 0% 0% 0%)",
+                },
+                {
+                    clipPath: "inset(0% 0% 0% 0%)",
+                },
+                "<",
+            );
+
+        ScrollTrigger.create({
+            scrub: true,
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            animation: enterTimeline,
         });
     }
 

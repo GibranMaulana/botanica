@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ModelImage;
+use App\Models\ProcessImage;
 use Illuminate\View\View;
 
 class SanctuaryController extends Controller
@@ -14,8 +16,13 @@ class SanctuaryController extends Controller
             ->take(2)
             ->get();
 
+        $rituals = ModelImage::get();
+        $processes = ProcessImage::get();
+
         return view('sanctuary', [
             'products' => $products,
+            'rituals' => $rituals,
+            'processes' => $processes,
         ]);
     }
 }

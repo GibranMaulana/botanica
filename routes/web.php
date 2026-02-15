@@ -8,7 +8,9 @@ Route::get('/', function () {
     return redirect()->route('sanctuary');
 });
 
-Route::get('/sanctuary', [SanctuaryController::class, 'index']
+Route::get(
+    '/sanctuary',
+    [SanctuaryController::class, 'index']
 )->name('sanctuary');
 
 Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
