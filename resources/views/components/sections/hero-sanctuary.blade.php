@@ -1,4 +1,4 @@
-<section class="relative min-h-screen flex flex-col z-0" id="hero-sanctuary">
+<section class="relative min-h-screen flex flex-col z-5" id="hero-sanctuary">
    <div class="absolute inset-0 z-0">
       <video
       class="w-full h-full object-cover"
