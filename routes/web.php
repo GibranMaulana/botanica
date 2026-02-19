@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\PhilosophyController;
 use App\Http\Controllers\SanctuaryController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,4 @@ Route::get(
 
 Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
 
-Route::get('/philosophy', function () {
-    return view('philosophy');
-})->name('philosophy');
+Route::get('/philosophy', [PhilosophyController::class, 'index'])->name('philosophy');
