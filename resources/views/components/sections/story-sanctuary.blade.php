@@ -23,9 +23,13 @@
                 class="flex flex-col text-center font-headings text-[clamp(2.5rem,8vmin,10rem)]
                        overflow-x-clip uppercase z-10 leading-none"
             >
-                <span class="block">From Living Earth</span>
+                <span class="block">
+                    From Living <span class="text-primary">Earth</span>
+                </span>
                 <span class="block lowercase">to</span>
-                <span class="block">Living Skin</span>
+                <span class="block">
+                    Living <span class="text-accent">Skin</span>
+                </span>
             </h1>
             <div class="relative sm:absolute px-2 gap-2 flex flex-row inset-0">
 

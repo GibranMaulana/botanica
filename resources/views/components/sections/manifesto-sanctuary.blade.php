@@ -35,7 +35,7 @@
    </div>
 
 
-   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full justify-center gap-10 md:gap-0">
+   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full justify-center gap-10 xl:gap-0">
       @foreach ($points as $p)
       <div class="flex flex-col w-fit h-full gap-12 mx-auto point-container">
          <div class="flex flex-col gap-2" >
