@@ -17,3 +17,7 @@ Route::get(
 Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
 
 Route::get('/philosophy', [PhilosophyController::class, 'index'])->name('philosophy');
+
+Route::get('/debug', function () {
+    return view('debug');
+})->name('debug');
