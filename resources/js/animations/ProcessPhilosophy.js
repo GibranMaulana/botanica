@@ -28,8 +28,30 @@ export class ProcessPhilosophy {
     }
 
     init() {
+        const beforeSection = this.scope.querySelector("#source-philosophy");
+        const section = this.scope.querySelector("#process-philosophy");
+        const wrapper = section.querySelector("#wrapper-process-philosophy");
+        const dimOffset = section.querySelector("#dim-offset-process-philosophy");
+
         this.ctx = gsap.context(() => {
-            const section = this.scope.querySelector("#process-philosophy");
+            // Entrance: slide up as source-philosophy scrolls out
+            gsap.set(wrapper, { translateY: "-50%", zIndex: 1 });
+            gsap.set(dimOffset, { backgroundColor: "black" });
+
+            const entranceTl = gsap.timeline({ defaults: { ease: "none" } });
+            entranceTl
+                .to(wrapper, { translateY: "0", duration: 2 }, 0)
+                .fromTo(dimOffset, { opacity: 0.5 }, { opacity: 0, duration: 1.5 }, "<");
+
+            ScrollTrigger.create({
+                scrub: true,
+                trigger: beforeSection,
+                start: "bottom bottom",
+                end: "bottom top",
+                animation: entranceTl,
+            });
+
+            // Phase 1: images gather to top then return to natural positions
             const row = section.querySelector("#process-img-row");
             const svg = section.querySelector("#process-svg");
             const path = section.querySelector("#process-path");
@@ -44,12 +66,7 @@ export class ProcessPhilosophy {
             const gatherTl = gsap.timeline({ defaults: { ease: "none" } });
             gatherTl
                 .fromTo(imgs[1], { y: offsets[1] }, { y: 0, duration: 1 }, 0)
-                .fromTo(
-                    imgs[2],
-                    { y: offsets[2] },
-                    { y: 0, duration: 0.9 },
-                    0.1,
-                );
+                .fromTo(imgs[2], { y: offsets[2] }, { y: 0, duration: 0.9 }, 0.1);
 
             ScrollTrigger.create({
                 trigger: section,

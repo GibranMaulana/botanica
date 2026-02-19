@@ -5,8 +5,8 @@
     'processAssets'
 ])
 <section
-    class="relative min-h-screen bg-linear-to-b from-background-1 to-background-3
-           flex flex-col py-10"
+    class="relative z-10 min-h-screen bg-linear-to-b from-background-1 to-background-3
+           flex flex-col py-20"
     id="source-philosophy"
 >
     <div class="relative z-1 m-auto w-full max-w-[clamp(20rem,50vw,36rem)]">
