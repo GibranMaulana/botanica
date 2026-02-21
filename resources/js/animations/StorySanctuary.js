@@ -20,12 +20,27 @@ export default class StorySanctuary {
         const cont1Second = imgCont1.querySelector(".second");
         const imgCont2 = section.querySelector("#img-container2-" + name);
         const cont2Second = imgCont2.querySelector(".second");
+        const backgroundSvg = section.querySelector("#background-svg-story");
 
         this.ctx = gsap.context(() => {
             gsap.set(wrapper, {
                 translateY: "-50%",
                 zIndex: 1,
             });
+
+            gsap.fromTo(
+                backgroundSvg,
+                { clipPath: "inset(100% 0% 0% 0%)" },
+                {
+                    clipPath: "inset(0% 0% 0% 0%)",
+                    scrollTrigger: {
+                        scrub: true,
+                        trigger: section,
+                        start: "top bottom",
+                        end: "bottom bottom",
+                    },
+                },
+            );
 
             gsap.set(dimOffset, {
                 backgroundColor: "black",
