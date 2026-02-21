@@ -17,7 +17,11 @@
         class="sticky top-0 left-0 min-h-screen w-full flex items-center justify-center z-2"
         >
         <div class="relative flex flex-col items-center justify-center w-full min-h-screen gap-5 overflow-x-clip">
-
+            <div class="absolute inset-0">
+                <x-svgs.tree-branch
+                    class="w-full text-accent/20 rotate-45"
+                    id="background-svg-story"/>
+            </div>
             <h1
                 id="title-story-sanctuary"
                 class="flex flex-col text-center font-headings text-[clamp(2.5rem,8vmin,10rem)]
