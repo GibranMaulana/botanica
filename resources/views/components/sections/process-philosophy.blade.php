@@ -17,15 +17,15 @@
     >
         <div id="process-img-row" class="relative flex flex-row flex-1 justify-evenly min-h-[60vh] lg:min-h-[80vh]">
             <div data-process-img class="{{ $imgContainerClass }} self-start">
-                <img src="{{ asset('storage/process/06-microscopic-leaf.jpg') }}"
+                <img src="{{ asset('storage/process/06-microscopic-leaf.webp') }}"
                         class="{{ $imgClass }}">
             </div>
             <div data-process-img class="{{ $imgContainerClass }} self-center">
-                <img src="{{ asset('storage/process/07-oil-flask.jpg') }}"
+                <img src="{{ asset('storage/process/07-oil-flask.webp') }}"
                         class="{{ $imgClass }}">
             </div>
             <div data-process-img class="{{ $imgContainerClass }} self-end">
-                <img src="{{ asset('storage/process/08-serum-result.jpg') }}"
+                <img src="{{ asset('storage/process/08-serum-result.webp') }}"
                         class="{{ $imgClass }}">
             </div>
             <svg
