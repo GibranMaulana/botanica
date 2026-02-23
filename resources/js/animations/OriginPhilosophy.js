@@ -20,7 +20,11 @@ export class OriginPhilosophy {
             const dialouge1 = "#dialouge-one";
             const dialouge2 = "#dialouge-two";
 
-            let timeline = gsap.timeline({ defaults: { ease: "none" } });
+            window.dispatchEvent(new CustomEvent("animation:done")); //no animation to wait in this
+
+            let timeline = gsap.timeline({
+                defaults: { ease: "none" },
+            });
 
             gsap.set(image, { scale: 1.5, xPercent: -20 });
 

@@ -1,38 +1,40 @@
 let firstLoad = true;
 
 export const createView = (namespace, animationClasses = []) => {
-   let instances = [];
+    let instances = [];
 
-   const initAnimation = (container) => {
-      animationClasses.forEach(e => {
-         instances.push(new e(container));
-      })
-   }
+    const initAnimation = (container) => {
+        animationClasses.forEach((e) => {
+            instances.push(new e(container));
+        });
+    };
 
-   return {
-      namespace,
-      beforeEnter(data) {
+    return {
+        namespace,
+        beforeEnter(data) {
+            const container = data.next.container;
 
-         const container = data.next.container;
+            if (firstLoad) {
+                window.addEventListener(
+                    "preloader:complete",
+                    () => {
+                        initAnimation(container);
+                    },
+                    { once: true },
+                );
 
-         if(firstLoad) {
-            window.addEventListener('preloader:complete', () => {
-               initAnimation(container);
-            }, { once: true});
+                firstLoad = false;
+            } else {
+                initAnimation(container);
+            }
+        },
 
-            firstLoad = false;
-         } else {
-            initAnimation(container);
-         }
-      },
+        afterLeave(data) {
+            instances.forEach((e) => {
+                e.kill();
+            });
 
-      afterLeave(data) {
-         instances.forEach(e => {
-            e.kill()
-         })
-
-         instances = [];
-      },
-
-   }
-}
+            instances = [];
+        },
+    };
+};
