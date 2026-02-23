@@ -21,12 +21,33 @@ export default class StorySanctuary {
         const imgCont2 = section.querySelector("#img-container2-" + name);
         const cont2Second = imgCont2.querySelector(".second");
         const backgroundSvg = section.querySelector("#background-svg-story");
+        const backgroundSvgFixed = section.querySelector(
+            "#background-svg-story-fixed",
+        );
+
+        const isMobile = () => window.innerWidth < 640;
 
         this.ctx = gsap.context(() => {
             gsap.set(wrapper, {
                 translateY: "-50%",
                 zIndex: 1,
             });
+
+            gsap.fromTo(
+                [backgroundSvg, backgroundSvgFixed],
+                {
+                    translateY: "-20%",
+                },
+                {
+                    translateY: "-30%",
+                    scrollTrigger: {
+                        scrub: true,
+                        trigger: section,
+                        start: "top bottom",
+                        end: isMobile() ? "bottom bottom" : "bottom top",
+                    },
+                },
+            );
 
             gsap.fromTo(
                 backgroundSvg,
@@ -37,7 +58,7 @@ export default class StorySanctuary {
                         scrub: true,
                         trigger: section,
                         start: "top bottom",
-                        end: "bottom bottom",
+                        end: isMobile() ? "bottom bottom" : "bottom top",
                     },
                 },
             );
@@ -88,7 +109,6 @@ export default class StorySanctuary {
         });
 
         const enterTimeline = gsap.timeline({ defaults: { ease: "none" } });
-        const isMobile = () => window.innerWidth < 640;
         enterTimeline
             .fromTo(title, { yPercent: 50 }, { yPercent: -50, duration: 10 }, 0)
             .fromTo(
