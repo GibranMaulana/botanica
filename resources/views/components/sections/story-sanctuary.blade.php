@@ -14,14 +14,14 @@
     </div>
     <div
         id="wrapper-story-sanctuary"
-        class="sticky top-0 left-0 min-h-screen w-full flex items-center justify-center z-2"
+        class="sticky top-0 left-0 min-h-dvh w-full flex items-center justify-center z-2"
         >
         <div class="relative flex flex-col items-center justify-center w-full min-h-screen gap-5 overflow-x-clip">
             <x-svgs.tree-branch
-                class="absolute inset-0 text-accent/20 rotate-135"
+                class="absolute inset-0 text-accent/20 rotate-135 pointer-events-none"
                 id="background-svg-story-fixed"/>
             <x-svgs.tree-branch
-                class="absolute inset-0 text-primary/30 rotate-135"
+                class="absolute inset-0 text-primary/30 rotate-135 pointer-events-none"
                 id="background-svg-story"/>
             <h1
                 id="title-story-sanctuary"

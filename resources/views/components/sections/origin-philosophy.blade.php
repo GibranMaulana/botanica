@@ -3,7 +3,7 @@
     class="relative z-10 min-h-[400dvh] bg-linear-to-b from-background to-background-1 overflow-x-clip"
 >
    <div class="sticky top-0 left-0">
-      <div id="origin-wrapper" class="grid grid-cols-1 gap-5 h-screen py-[clamp(2.5rem,8vmin,5rem)]">
+      <div id="origin-wrapper" class="grid grid-cols-1 gap-5 h-screen py-[clamp(2.5rem,8vmin,5rem)] overflow-hidden">
          <div class="absolute inset-0 pointer-events-none flex flex-col justify-center items-center">
             <h2
                 id="subtitle-origin-philosophy"

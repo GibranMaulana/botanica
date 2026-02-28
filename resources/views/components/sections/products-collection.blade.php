@@ -9,7 +9,7 @@
                   snap-center shrink-0 min-w-[85%]" data-product="{{ json_encode($p) }}" >
          <div class="aspect-square sm:aspect-3/4 w-full overflow-hidden product-image-container rounded-t-lg">
             <img src="{{ $p['img_url'] }}" alt="" 
-            class="object-cover self-center w-full h-full product-image scale-125 sm:scale-none">
+            class="object-cover self-center w-full h-full product-image scale-125 sm:scale-100">
          </div>
          <div class="relative product-content flex flex-col grow bg-[#FAFAF5] px-3 pt-4 pb-3 rounded-lg -mt-2 z-20 overflow-hidden">
             <div class="product-content-bg absolute inset-0 bg-accent" style="transform: translateY(100%)"></div>

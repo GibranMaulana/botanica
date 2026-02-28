@@ -15,7 +15,7 @@
         id="wrapper-process-philosophy"
         class="sticky top-0 left-0 min-h-screen w-full flex flex-col py-20 px-2 z-2"
     >
-        <div id="process-img-row" class="relative flex flex-row flex-1 justify-evenly min-h-[60vh] lg:min-h-[80vh]">
+        <div id="process-img-row" class="relative flex flex-row flex-1 justify-evenly min-h-[60vh] lg:min-h-[80vh] overflow-hidden">
             <div data-process-img class="{{ $imgContainerClass }} self-start">
                 <img src="{{ asset('storage/process/06-microscopic-leaf.webp') }}"
                         class="{{ $imgClass }}">
