@@ -1,5 +1,5 @@
-<section class="relative min-h-screen flex flex-col z-5" id="hero-sanctuary">
-   <div class="absolute inset-0 z-0">
+<section class="relative min-h-dvh flex flex-col z-5" id="hero-sanctuary">
+   <div class="absolute inset-0 z-0 overflow-hidden">
       <video
       class="w-full h-full object-cover"
       autoplay
@@ -14,7 +14,7 @@
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]"></div>
    </div>
 
-   <div class="relative flex flex-col justify-between items-center min-h-screen z-10 p-10">
+   <div class="relative flex flex-col justify-between items-center min-h-dvh z-10 p-10">
       <div class=""></div>
       <div class="overflow-hidden">
          <div

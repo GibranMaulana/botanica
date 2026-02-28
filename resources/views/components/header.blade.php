@@ -29,17 +29,17 @@
 
 <section id="menu-section" class="fixed inset-0 z-100 overflow-hidden pointer-events-auto"
          style="transform: translateX(100%);">
-   <div class="relative min-h-screen h-full flex flex-col font-headings text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl justify-center bg-background-1">
+   <div class="relative min-h-dvh h-full flex flex-col font-headings text-[clamp(2rem,min(8vw,12dvh),8rem)] justify-center bg-background-1 py-10">
       @foreach ($headers as $h)
       <div class="relative overflow-hidden link-container border-b"
            style="transform: translateX(100%);">
          <div class="absolute inset-0 bg-accent link-bg" style="transform: translateY(-100%)"></div>
-         <a href="{{ route($h['title']) }}" class="flex flex-col gap-5 hover:cursor-pointer pt-10 thelink"
+         <a href="{{ route($h['title']) }}" class="flex flex-col gap-5 hover:cursor-pointer pt-10 [@media(max-height:750px)]:pt-4 thelink"
             style="transform: translateY(100%);">
-            <p class="text-xs md:text-base text-end font-body max-w-[50%] self-end italic px-2 link-description">
+            <p class="text-xs md:text-base [@media(max-height:750px)]:text-xs text-end font-body max-w-[50%] self-end italic px-2 link-description">
                {{ $h['description']  }}
             </p>
-            <h2 class="px-2 uppercase link-title">
+            <h2 class="px-2 uppercase link-title leading-none">
                {{ $h['title'] }}
             </h2>
          </a>

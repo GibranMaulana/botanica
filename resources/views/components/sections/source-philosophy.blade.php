@@ -5,7 +5,7 @@
     'processAssets'
 ])
 <section
-    class="relative z-10 min-h-screen bg-linear-to-b from-background-1 to-background-3
+    class="relative z-10 min-h-svh bg-linear-to-b from-background-1 to-background-3
            flex flex-col py-20"
     id="source-philosophy"
 >
